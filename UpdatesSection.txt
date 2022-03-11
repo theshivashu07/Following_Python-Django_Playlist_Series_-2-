@@ -220,6 +220,70 @@ So thats the overall things there, that how to you manage all the things by dyna
 
 
 
+15 - Render an HTML Template as Response
+
+Now we see in precctical that how we render html template as response...
+So to do it we import one library from django.shorcut import rander. Till now we only return text as response, but now we are ready to learn that how we render templates on any views. 
+
+So first make sure that there is exist templates folder under the project. So you make one file there like index.html file. And do simple code there:
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+</head>
+<body>
+    <b> Welcome to shivashu.com!</b>
+</body>
+</html>
+Actually this code is only to get the idea that how to we render any webpage or html page. 
+
+So second step is you go same projects name app, and open settings.py file, and on its templates section we want to tell this setting.py file that where is our location of all html files collection. So on template's 'DIRS' section we set path on list to connect. like:
+'DIRS' : [BASE_DIR,"templates"],
+Here we write 'BASE_DIR', which means its gives us the path till the folders location, and after that we write our folder name, because template folder is in front. Maybe you know internship time, where we make many apps so there is we write many more things saperated by slash(/) sign. But here things are simple.
+
+So now our third task is we open views.py file, and create function for homepage, and now there we not return any HttpResponse, here we render template.
+views.py
+....................................
+from django.shortcut import render
+def homepage(request):
+    return render(request,"index.html")
+....................................
+
+Here under render, two parameter passing is mandetory, first is 'request' and second is that html file which we render as response. 
+Now the third task is must to make url for this, so open urls.py file and make url there. 
+urls.py
+...............................
+urlpatterns = [
+    path('',views.homepage),
+    ...............
+]
+
+So actually here we are not pass any name as url, because we want this page as bydefault page, means whenever you open as "www.shivashu.com", so your this page is open bydefault, so this blank path is hitting on bydefault. This blank path is like a site url now.
+So now you go on browser and refresh, you see that your html file is rendered succesfully as response. 
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
