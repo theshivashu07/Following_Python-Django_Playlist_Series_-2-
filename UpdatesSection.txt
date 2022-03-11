@@ -338,11 +338,47 @@ So after that we are printing our dictionaries data, actually we printing data a
 
 
 
+===================================================================================================
 
 
 
+18 - If Else Statement in Django Template
+
+So to see this implementation in precticals, we make one more list data in views's function. And then we make login in index.html file, you just go this file and see this implementations, that how things are happens. 
+So actually first we implement the logic where we check that all 20's greater values printing there, and in second if-else statement we make condition that if list not have any data then show a massage, otherwise all greater then 20 data printing there.
+
+index.html(using if)
+...................
+<body>
+    ...................
+    {% for n in mylist %}
+        {% if n > 20 %}
+            <div>{{n}}</div>
+        {% endif %}
+    {% endfor %}
+</body>
+...................
+
+index.html(using if-else)
+...................
+<body>
+    {% if mydatacopy|length > 0 %}
+        {% for n in mydatacopy %}
+            {% if n > 20 %}
+                <div>>> {{n}}</div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div>No Data Found.</div>
+    {% endif %}
+</body>
+...................
+
+So now we know everything about how to we send data from views section to html file, and how to iterate list, tuple, sets and also dictionary data. And we also apply if and if-else using loops. 
 
 
+
+===================================================================================================
 
 
 

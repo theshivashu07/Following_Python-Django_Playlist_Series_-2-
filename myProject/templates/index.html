@@ -70,6 +70,31 @@
 			</tr>
 			{% endfor %}
 		</table>
+		<br>
+		<br>
+		<br>
+		<br>
+		<b>Apply for and if statements</b>
+		{% for n in mydata %}
+			{% if n > 20 %}
+				<div>>> {{n}}</div>
+			{% endif %}
+		{% endfor %}
+		<br>
+		<br>
+		<br>
+		<br>
+		<b>Apply for and if-else statements</b>
+		{% if mydatacopy|length > 0 %}
+			{% for n in mydatacopy %}
+				{% if n > 20 %}
+					<div>>> {{n}}</div>
+				{% endif %}
+			{% endfor %}
+		{% else %}
+			<div>No Data Found.</div>
+		{% endif %}
+		<br>
 	</div>
 </body>
 </html>

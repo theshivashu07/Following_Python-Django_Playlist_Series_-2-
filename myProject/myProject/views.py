@@ -8,6 +8,8 @@ def homepage(request):
         'title' : 'Home Page',
         'message' : 'Welcome to shivashu.com!',
         'mylist' : ['shivam','vashu','shivashu','shrivashu'],
+        'mydata' : [10,20,30,40,50],
+        'mydatacopy' : [],    # want as blank list
         'student_details' : [
             {'name':'shivam','phone':7898000000},
             {'name':'shri','phone':7898111111},
