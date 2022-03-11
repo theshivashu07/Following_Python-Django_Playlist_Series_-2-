@@ -113,9 +113,36 @@ So this is the way that how to we create superuser, and view as admin, because i
 
 
 
+12 - What are URL's & Views in Django. 
+
+URL's or Routes:
+We also say URL's as Route. Like our domain name is shivashu.com so this is domain, but routing play role as suppose we click this website's aboutus page, so what will heppens in url, so it is "www.shivashu.com/aboutus", so this routing or slug will create in url.
+Show starting page : https://www.shivashu.com/
+Show list of all posts : https://www.shivashu.com/blog/
+Show specify posts : https://www.shivashu.com/blog/singleposts
+We see in future like if we want to pass parameter, pass id, or do how to we make urls dynamically, so how to we do that?! see in future. 
+
+Views:
+The logic is executed for different URL's(https method)
+(1) Functions
+(2) Class
+Prapare and return response data(eg. HTML)
+Every view is connected with your url, which url's you call, same name view's function or class will calling always, and for every request our view return the things as response. And that's how these both links are connected with each others. 
+
+Now suppose you want to change superuser's url...
+by default --> localhost:8000/admin/
+localhost:8000/admin/login/?next=/admin/ (hitting and converting bydefault)
+http://127.0.0.1:8000/admin/login/?next=/admin/  [http://127.0.0.1:8000/admin/]
+
+So if you want to change, so you go on project's personal app and open url.py and there you change the url patterns bydefault url and set path "admin/" to "admin-panel/", Now if you go and again refresh this previous page, so there is show error, as not found error. Reason is because you're changed its route or root. 
+Now URL is --> localhost:8000/admin-panel/
+localhost:8000/admin-panel/login/?next=/admin-panel/ (hitting and converting bydefault)
+http://127.0.0.1:8000/admin-panel/login/?next=/admin-panel/  [http://127.0.0.1:8000/admin-panel/] 
 
 
+===================================================================================================
 
+ 
 
 
 
