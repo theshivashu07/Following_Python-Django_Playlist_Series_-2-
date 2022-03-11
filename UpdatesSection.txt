@@ -172,16 +172,51 @@ And we also use html tag's there with your string data, like you write data unde
 
 
 
+14 - How to Create a Dynamic URL in Django. 
+
+Actually dynamic routes means you see some websites like any website where we visit, so website is www.shivashu.com. Then you want to open all people's blog section so after open blog section you see that route or url is now www.shivashu.com/blogs. Now because many blog are there, so you open any one like: "ashu-blog" so immidiate your url is now "www.shivashu.com/blogs/ashu-blog", so means is if there is 1000 of blogs, and you want to open any other blog, like "yash-blog" so for every blogs url is different but like "www.shivashu.com/blogs/ashu-blog/yash-blog", its original url is "www.shivashu.com/blogs/ashu-blog/yash-blog" now.
+So thats the thing what we trying to say that, for blogs section, we have the dynamic url, who help us to see all blogs one by one so there "www.shivashu.com/blogs/......." is always same or fix for all 1000 blogs, and only last name is change always, according to you open blog. So thats the over means or work of dynamic url's. 
+By the way i share you the same thing which we learn in internship time, there we manage same thing using to create many different-different apps. Like for managing all blogs we make one blog app, and all the things we manage there.
+
+So lets now we implement it prectically, Suppose in our project we have three courses, like java python django. So on which course we click, its page is open, and all the urls changes automatically, and all its we managing using dynamic routes. so lets see these...
+
+But before starting i describe that, routs are always create on the bases of int, str or slugs. Here int means all numbers, string means every string, and slug means the data which is saperated by dash(-) sign, like "shivam-kumar-shukla". But if you selected int then if you pass string in url, then error is coming there, and
+
+urls.py
+.......................
+urlpatterns = [
+    ..................
+    # path('course/<int:courseid>',views.courseDetails),
+    # path('course/<str:courseid>',views.courseDetails),
+    # path('course/<slug:courseid>',views.courseDetails),
+    path('course/<courseid>',views.courseDetails),
+]
+
+views.py
+.................
+def courseDetails(request,courseid):
+    return HttpResponse(courseid)
+
+Chrome:
+Note: So if we are select as int:
+localhost:8000/course/1 --> printing 1. 
+localhost:8000/course/9 --> printing 9. 
+localhost:8000/course/s --> Error. 
+Note: So if we are select as str and slugs:
+localhost:8000/course/s --> printing s. 
+localhost:8000/course/vashu --> printing vashu. 
+localhost:8000/course/1 --> printing 1. 
+localhost:8000/course/abc-def --> printing abc-def. 
+
+So actually these things we using in future, because you see that, there "localhost:8000/course/" is a prefix, and its always same but after that whatever we want to pass, it show directly. But in future when we works dynamically with using templates, so there we want these, now here you just see that how to things are works there.
+And yes if you write format-int, so only in this case string and slugs are not allowed, but in format-str or format-slug all things are accepting. 
+Actually you use this as conditions also, but suppose you don't know that which type of value is coming, so you also not written any type there. 
+
+So thats the overall things there, that how to you manage all the things by dynamic url change patterns. So with this logic we shown multiple posts, products, blogs, items and more things there. 
 
 
 
-
-
-
-
-
-
-
+===================================================================================================
 
 
 
