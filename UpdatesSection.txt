@@ -143,6 +143,50 @@ http://127.0.0.1:8000/admin-panel/login/?next=/admin-panel/  [http://127.0.0.1:8
 ===================================================================================================
 
  
+13 - How to create your own URL's and Views in Django. 
+
+First you make sure that in same project's name app you create views.py file. And written a code there:
+from django.http import HttpResponse 
+def aboutus(request):
+        return HttpResponse("<b>Welcome to shivashu.com</b>")
+def course(request):
+        return HttpResponse("Welcome to Python")
+This HttpResponse return a response as string formate only. To return any html page we use other things which we discuss later. 
+And there is we want to pass "request" as parameter, now there is its no use, but when we pass any parameter in future, so all the passing data coming on this parameter, and you also change its name, but you prafer its because this is a bydefault name.
+
+Now we want that if we write "localhost:8000/aboutus/" so this function's data show there. So first we go on urls.py file and make url for aboutus as link, so its creation code is:
+
+........................
+from myProject import views
+urlpatterns = [
+        ..........................
+        path('about-us/',views.aboutus),
+        path('course/',views.course),
+]
+
+So here first we import views.py file there, and in urlpattern under path first we set url, and then write that if this url will call then views.py's which function will called. 
+And we also use html tag's there with your string data, like you write data under bold tag, so that your HttpResponse is going as bold string. 
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
