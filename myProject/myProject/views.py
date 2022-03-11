@@ -8,6 +8,10 @@ def homepage(request):
         'title' : 'Home Page',
         'message' : 'Welcome to shivashu.com!',
         'mylist' : ['shivam','vashu','shivashu','shrivashu'],
+        'student_details' : [
+            {'name':'shivam','phone':7898000000},
+            {'name':'shri','phone':7898111111},
+        ]
     }
     return render(request,'index.html',data);
 

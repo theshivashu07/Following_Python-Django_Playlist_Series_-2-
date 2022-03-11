@@ -299,6 +299,50 @@ So now there we only see that how to we passing data from a django view to a tem
 
 
 
+17 - How to use the Django Template For Loop
+
+Now we will learn that how to we print django's views.py file's data into a html page one by one using loops or iterations. so first we set some data on our views.py file. 
+views.py
+def homepage(request):
+    data={
+        'title' : 'Home Page',
+        'message' : 'Welcome to shivashu.com!',
+        'mylist' : ['shivam','vashu','shivashu','shrivashu'],
+        'student_details' : [
+            {'name':'shivam','phone':7898000000},
+            {'name':'shivam','phone':7898111111},
+        ]
+    }
+    return render(request,'index.html',data);
+
+and now we implementing for loop under body section, to see exect code you prefer index.html file directly, because here we see overview only...
+index.html
+...............
+<body>
+    {% for n in mylist %}
+    <div>{{n}}</div>
+    {% endfor %}
+</body>
+..............
+
+Django Template For Loop:
+Variable                         Description
+forloop.counter             The current iteration of the loop(1-indexed). 
+forloop.counter0           The current iteration of the loop(0-indexed). 
+forloop.revcounter        The number of iteration from the end of the loop(1-indexed). 
+forloop.revcounter0      The number of iteration from the end of the loop(0-indexed). 
+forloop.first                   True if this is the first time through the loop. 
+forloop.last                    True if this is the last time through the loop. 
+
+So after that we are printing our dictionaries data, actually we printing data as table format. But printing the dictionary data is different from other printings, like list tuple sets or normal variables. So thats all about the how to we implement loops.
+
+
+
+
+
+
+
+
 
 
 

@@ -18,7 +18,58 @@
 	<div class="main">
 		<b>{{message}} #GreatOne</b>
 		<br>
-		<b>{{mylist}}</b>
+		<br>
+		<br>
+		<b>Simple Iteration</b>
+		{% for n in mylist %}
+		<div>>> {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.counter</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.counter}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.counter0</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.counter0}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.revcounter</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.revcounter}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.revcounter0</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.revcounter0}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.first</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.first}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<b>Using forloop.last</b>
+		{% for n in mylist %}
+		<div>>> {{forloop.last}} - {{n}}</div>
+		{% endfor %}
+		<br>
+		<br>
+		<br>
+		<br>
+		<table border="1" cellpadding="10">
+			<tr>
+				<th>Name</th>
+				<th>PhoneNo.</th>
+			</tr>
+			{% for d in student_details %}
+			<tr>
+				<th>{{d.name}}</th>
+				<th>{{d.phone}}</th>
+			</tr>
+			{% endfor %}
+		</table>
 	</div>
 </body>
 </html>
