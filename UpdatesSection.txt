@@ -55,3 +55,18 @@ Or we also change our IP's, because sometime we want to work in another project 
 
 ===================================================================================================
 
+
+8 - Folder's Structure:
+Means where is our media's, static's, template's or html file's existing, these things we dicussed here...
+So always remember two ways to make projects, first way we see in Internship time, and second is there...
+And these folders we make under the projects section, not under the app. So here we make these three folders! 
+media - Dynamic Files, means files which we use dynamically, like product images or data files and etcs. 
+static - Media files statically, like javascript jquery images css fonts etc's. 
+templates - All HTML files. 
+And must is to make views.py file under the apps, not in project. 
+
+And Under the same project's name app, there is a file settings.py, this file manage our database and some more things. Actually all the settings related things we manage here, because manage.py file also considering there's settings. 
+
+
+===================================================================================================
+
