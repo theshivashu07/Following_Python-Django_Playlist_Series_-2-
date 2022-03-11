@@ -96,3 +96,34 @@ Actually whatever data we inserted in our SQLite database, we can't able to view
 ===================================================================================================
 
 
+
+
+11 - How to create SuperUser in Django 
+
+Command to create superuser is :
+|.....> python manage.py createsuperuser
+After that there ask some information like name email username password and some others things. And then your superuser is created. And then you are free to login on admin pannel. 
+But before we open admin pannel, first we open DBBrowser and check there, where our this user's entry registered. So open it and select database file, and then you see on Tables's auth_user and click its right and browse table option and there is show all user's login details. Here all details shown but it incript all passwords. 
+
+So this is the way that how to we create superuser, and view as admin, because in future when we create many models in future, so there we add products and otherthings in admin sides, so that all the things shown as user side. Actually two types sides of every websites, first is what user are heppens, and what is a front of user. So admin sides things we dicussed after some lectures, because in some more lectures we discussed the things about, what user show...
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
