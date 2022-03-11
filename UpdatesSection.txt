@@ -264,6 +264,11 @@ So actually here we are not pass any name as url, because we want this page as b
 So now you go on browser and refresh, you see that your html file is rendered succesfully as response. 
 
 
+Now we are see that if we want to implement css then how the things are heppens, so to just only show we implement some code more in our code file, and then save it, and again refresh the main page, and you see that these css part, which is available under style tag, its reflecting its show. 
+
+So basically render and HttpResponse are return response, but both have different expresive powers, render return html files and HttpResponse return only text strings. 
+
+
 
 ===================================================================================================
 
