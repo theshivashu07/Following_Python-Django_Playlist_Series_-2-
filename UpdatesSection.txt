@@ -1,0 +1,57 @@
+
+
+All Updates, like in every lectures what we are adding.
+We follow youtube's playlist : https://www.youtube.com/watch?v=C1NgOmoOszc&list=PLjVLYmrlmjGcyt3m6rt21nfjhYSWP_Ue_&index=1
+
+
+
+===================================================================================================
+
+Update 0 :
+Video Lecture - 1 to 4. 
+1 - Introduction to Django and Framework. 
+2 - Before learning Django, what should come? 
+3 - What is MVT, Model View Template. 
+4 - Python, PIP and Django Installation. 
+
+
+
+===================================================================================================
+
+Update 1 :
+Video Lecture - 5 and 6. 
+5 - How to create new project on Django. 
+First we want to open CMD, and go on the exect location where we want to create project.
+Two ways to open location:
+(1) Direct go on location in folder, and write "CMD ....." on front of these location.
+(2) Go on search, write cmd and after select CMD entered. And after open you change your location where you want to create project:
+    |>> C:\windows\system32> d:
+    |>> D:\> cd .....
+    |>> D:\.....>
+
+Many processes under django, so to check it with the command:
+|.....> django-admin
+
+Here is many options, in which startproject is there,with it we create a project. 
+|.....> django-admin startproject myProject
+
+
+
+6 - How to Run Development Server in Django.
+Now to do anything on your project, first make sure that you are under your main project or not?!! Because project's main manage.py file who control everything its under this project, so first you visit under project.
+And also make sure that you not go under the same project name app. only go one step under. So to do it follow the steps:
+|.....> cd myProject
+Now we do run our project with the command:
+|.....> python manage.py runserver  (Here we get 127.0.0.1:8000, here 8000 is bydefault) 
+And then you just copy IP, and paste on chrome. And after that if nothing is show means we do something else, but if run perfectly means things are we do perfectly. And after that if you want to quit server's run, so you go on CMD and press "ctrl+c", then you server is stopped.
+Or we also change our IP's, because sometime we want to work in another project at same time. 
+|.....> python manage.py runserver 3108  (Here we get 127.0.0.1:3108, here 3108 is myway) 
+
+
+
+7 - SetUp the Visual Studio Code Editor. 
+
+
+
+===================================================================================================
+
