@@ -70,3 +70,29 @@ And Under the same project's name app, there is a file settings.py, this file ma
 
 ===================================================================================================
 
+
+9 - How to Migrate Default Migeations
+Actually some table's schema django have bydefault, so when we do apply makemigrations and then migrate it, so there is some schema applying automatically. And it gives us the admin pannel bydefault, like you go on browser and run with "127.0.0.1:8000/admin" so your admin pannel is open automatically. But it wants username and password, because we generate it by terminal, and this work we do after do migrate things, because without its we never get schema. 
+Actually before do apply these commands there is manage.py's space is 0'kb and after do this size is incresses, because then schema is coming there...
+So first command is:
+|.....> python manage.py makemigrations
+Generally we use it, whenever we create new model, so we convert it into migrations first, but if you create first time, then we apply second command, is:
+|.....> python manage.py migrate
+So you see that there is manage.py play role as manager, who manageing all the tasks. 
+
+Here we also apply other databse like MongoDB or SQL or others, but Django use sqlite database, as bydefault. But its only for simple CRUD things, be in future in big projects we never work with these...
+And when you want to use other database so you change the setting on setting.py file under the same name app, so there is a dictionary of DATABASES, these we do changes in future, not now.
+
+So here we know how to do apply migrations, because without it we never able to create superuser, and if not create superuser then never open admin section, so thats the reason why we do migrations. 
+
+
+
+
+10 - Install DB Browser
+Actually whatever data we inserted in our SQLite database, we can't able to view this data, because it's a binary data. So we install DB browser, so that we viewing these data as rows and columns format.
+
+
+
+===================================================================================================
+
+
