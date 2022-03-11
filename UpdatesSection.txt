@@ -274,10 +274,28 @@ So basically render and HttpResponse are return response, but both have differen
 
 
 
+16 - Passing Data From a Django View to a Template
+
+Now we see that, which last html page we make, so on it how to we pass data on it thrue view.py file. Means we will see the connectivity that how to html files take all data from django's database. 
+
+So suppose the situation is, your html file's title is "Home Page", and you print the data in html file is: "Welcome to shivashu.com!". So we want to take both data by views.py file's function. So to do these things we use dictionary, and there we store the data as key-values paires. And we also change things in index.html file. Actually nothing we do a big change there, we just in the string's places, we simply written its holding keys only. And to know more information you  simply see this file.
+views.py
+................
+def homepage(request):
+    data={
+        'title' : 'Home Page',
+        'message' : 'Welcome to shivashu.com!',
+        'mylist' : ['shivam','vashu','shivashu','shrivashu'],
+    }
+    return render(request,'index.html',data);
+...............
+And always remember that we only pass this data variable, but we not uses thi data name, we access this dictionary's data with the help of its keys only. And if you want to print any key's data so we use dual curly breackets. like:{{title}}.
+
+So now there we only see that how to we passing data from a django view to a template, but in a next lecture we show how to we use for loops, because if in this situation we trying to print as {{mylist}}, so it print all data same as it is, as list. But we don't want it to print alls like that, and thats why we use loops. but in next lectures.
 
 
 
-
+===================================================================================================
 
 
 
