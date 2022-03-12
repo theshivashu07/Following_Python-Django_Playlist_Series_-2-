@@ -407,7 +407,22 @@ And in the next lecture we implement the code that how to we generate routing or
 
 
 
+
+Here we again make html file, because of whech html code we indsert first this is a only one single page, so must to we download another code, where multiple files available. so now commit as "Lecture 19 2.0". 
+
 ===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

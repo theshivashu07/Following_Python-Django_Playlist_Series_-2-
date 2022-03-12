@@ -19,17 +19,13 @@ from django.urls import path
 from myProject import views
 
 urlpatterns = [
-    path('',views.homepage),
     path('admin/', admin.site.urls),
+    path('',views.homepage),
     path('about-us/',views.aboutus),
-    path('course/',views.course),
-    # path('course/<int:courseid>',views.courseDetails),
-    # path('course/<str:courseid>',views.courseDetails),
-    # path('course/<slug:courseid>',views.courseDetails),
-    path('course/<courseid>',views.courseDetails),
+    path('services/',views.services),
+    # .......................................
+    path('gallery/',views.gallery),
 ]
-
-
 
 
 
