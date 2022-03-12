@@ -3,6 +3,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
+
+def homepage(request):
+    return render(request,'index.html');
+
+'''
 def homepage(request):
     data={
         'title' : 'Home Page',
@@ -16,6 +21,7 @@ def homepage(request):
         ]
     }
     return render(request,'index.html',data);
+'''
 
 def aboutus(request):
     return HttpResponse("<b>Welcome to shivashu.com</b>");

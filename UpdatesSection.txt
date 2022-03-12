@@ -382,14 +382,32 @@ So now we know everything about how to we send data from views section to html f
 
 
 
+19 - How to use CSS, JavaScript & Images in Django? 
+
+Actully some things you shifting back before starting this lecture, like in views section we do code beacuse of passing many values, so you just clear all the extra code, and make it again as simple and clean, same as lecture-15. 
+views.py
+def homepage(request):
+    return render(request,"index.html")
+............................
+
+
+So here now first step is that you go on browser and download any precreated template. And after download, cut all html files from there and paste there on out project's template folder, and also cut all the static related files, like javascript jquery css images and alls, and then paste these on project's static folder. Now when you run it your index.html file is callable, but its images javascript jquary and css part is not doned its work perfectly, and its reason is because its not connected perfectly. 
+Actually all files are on static folder, and in our html file's location is different, so first your task that you go on settings.py file and there you instruct about your location, and then we have a permission to do the tasks, so we are set directry's path in setting.py first. So do a extra code in the file's last...
+STATICFILES_DIRS = [
+    BASE_DIR,"static"
+] 
+So now all permissions are gurented now. And if you want to access any file by chrome, like : localhost:8000/static/css/clickers.css, so there is your file open perfectly. 
+And because where's we copy that code, there our css javascript jquary files are available in front, so that we go in every html file and search every file's folders, and in every file's implementations place you add "static/" in prefix on its. So all the javascript jquary images css files are implemented in a code, so thats the things happen there.
+
+But always remember thats the only first way to implement that, but there is a second way also and it is where not must to add "/static/" in prefix, here you just add {% load static %} in starting in your html file, and in every javascript jquary images css files implementation's places you write like: 
+<................... hrep="{% static 'img/fav.png' %}" > 
+And you implement this same code idea in each file's places, so in this way also we do implement static files, but first way is easy then second's way. So we follow first way in future but its for only rememberance that there is also second way to do implement the same logic. But in my index-2.0.html file runs perfactly, but size related issues coming there, but this code works perfect there.
+
+And in the next lecture we implement the code that how to we generate routing or url linkings. But till now we see that, how to we download any template and implementing in our project, so all tvhe things you do by yourself, with follow same as this video. 
 
 
 
-
-
-
-
-
+===================================================================================================
 
 
 

@@ -1,31 +1,33 @@
+{% load static %}
+
 <html>
 	<head>
-		<link rel="stylesheet" href="/static/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0//static/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	<body>
 		<nav>
 			<div class="nav-left">
-				<img src="/static/images/logo.png" class="logo">
+				<img src="{% static 'images/logo.png' %}" class="logo">
 				<ul>
 					<li>
-						<img src="/static/images/notification.png">
+						<img src="{% static 'images/notification.png' %}">
 					</li>
 					<li>
-						<img src="/static/images/inbox.png">
+						<img src="{% static 'images/inbox.png' %}">
 					</li>
 					<li>
-						<img src="/static/images/video.png">
+						<img src="{% static 'images/video.png' %}">
 					</li>
 				</ul>
 			</div>
 			<div class="nav-right">
 				<div class="search-box">
-					<img src="/static/images/search.png">
+					<img src="{% static 'images/search.png' %}">
 					<input type="text" placeholder="Search">
 				</div>
 				<div class="nav-user-icon online" onclick="settingsMenuToggle();">
-					<img src="/static/images/profile-pic.png">
+					<img src="{% static 'images/profile-pic.png' %}">
 				</div>
 			</div>
 
@@ -35,7 +37,7 @@
 				</div>
 				<div class="settings-menu-inner">
 					<div class="user-profile">
-						<img src="/static/images/profile-pic.png">
+						<img src="{% static 'images/profile-pic.png' %}">
 						<div>
 							<p>John Nicholson</p>
 							<a href="#">See Your Profile</a>
@@ -43,7 +45,7 @@
 					</div>
 					<hr>
 					<div class="user-profile">
-						<img src="/static/images/feedback.png">
+						<img src="{% static 'images/feedback.png' %}">
 						<div>
 							<p>Give Feedback</p>
 							<a href="#">Help us to improve the new design</a>
@@ -52,24 +54,24 @@
 					<hr>
 
 					<div class="settings-links">
-						<img src="/static/images/setting.png" class="settings-icon">
+						<img src="{% static 'images/setting.png' %}" class="settings-icon">
 						<a href="#">Settings & Privacy</a>
-						<img src="/static/images/arrow.png" width="10px">
+						<img src="{% static 'images/arrow.png' %}" width="10px">
 					</div>
 					<div class="settings-links">
-						<img src="/static/images/help.png" class="settings-icon">
+						<img src="{% static 'images/help.png' %}" class="settings-icon">
 						<a href="#">Help & Support</a>
-						<img src="/static/images/arrow.png" width="10px">
+						<img src="{% static 'images/arrow.png' %}" width="10px">
 					</div>
 					<div class="settings-links">
-						<img src="/static/images/display.png" class="settings-icon">
+						<img src="{% static 'images/display.png' %}" class="settings-icon">
 						<a href="#">Display & Accessibility</a>
-						<img src="/static/images/arrow.png" width="10px">
+						<img src="{% static 'rrow.png' %}" width="10px">
 					</div>
 					<div class="settings-links">
-						<img src="/static/images/logout.png" class="settings-icon">
+						<img src="{% static 'images/logout.png' %}" class="settings-icon">
 						<a href="#">Logout</a>
-						<img src="/static/images/arrow.png" width="10px">
+						<img src="{% static 'images/arrow.png' %}" width="10px">
 					</div>
 				</div>
 			</div>
@@ -79,23 +81,23 @@
 			<div class="left-sidebar">
 				<div class="imp-links">
 					<a href="#">
-						<img src="/static/images/news.png">
+						<img src="{% static 'images/news.png' %}">
 						Latest news
 					</a>
 					<a href="#">
-						<img src="/static/images/friends.png">
+						<img src="{% static 'images/friends.png' %}">
 						Friends
 					</a>
 					<a href="#">
-						<img src="/static/images/group.png">
+						<img src="{% static 'images/group.png' %}">
 						Groups
 					</a>
 					<a href="#">
-						<img src="/static/images/marketplace.png">
+						<img src="{% static 'images/marketplace.png">
 						Marketplace
 					</a>
 					<a href="#">
-						<img src="/static/images/watch.png">
+						<img src="{% static 'images/watch.png' %}">
 						Watch
 					</a>
 					<a href="#">
@@ -105,19 +107,19 @@
 				<div class="shortcut-links">
 					<p>Your Shortcuts</p>
 					<a href="#">
-						<img src="/static/images/shortcut-1.png">
+						<img src="{% static 'images/shortcut-1.png' %}">
 						Web Developers
 					</a>
 					<a href="#">
-						<img src="/static/images/shortcut-2.png">
+						<img src="{% static 'images/shortcut-2.png' %}">
 						Web Design Course
 					</a>
 					<a href="#">
-						<img src="/static/images/shortcut-3.png">
+						<img src="{% static 'images/shortcut-3.png' %}">
 						Full Stact Development
 					</a>
 					<a href="#">
-						<img src="/static/images/shortcut-4.png">
+						<img src="{% static 'images/shortcut-4.png' %}">
 						Website Experts
 					</a>
 				</div>
@@ -125,29 +127,29 @@
 			<div class="main-content">
 				<div class="story-gallery">
 					<div class="story story1">
-						<img src="/static/images/upload.png">
+						<img src="{% static 'images/upload.png' %}">
 						<p>Post Story</p>
 					</div>
 					<div class="story story2">
-						<img src="/static/images/member-1.png">
+						<img src="{% static 'images/member-1.png' %}">
 						<p>Alison</p>
 					</div>
 					<div class="story story3">
-						<img src="/static/images/member-2.png">
+						<img src="{% static 'images/member-2.png' %}">
 						<p>Jackson</p>
 					</div>
 					<div class="story story4">
-						<img src="/static/images/member-3.png">
+						<img src="{% static 'images/member-3.png' %}">
 						<p>Samona</p>
 					</div>
 					<div class="story story5">
-						<img src="/static/images/member-4.png">
+						<img src="{% static 'images/member-4.png' %}">
 						<p>John</p>
 					</div>
 				</div>
 				<div class="write-post-container">
 					<div class="user-profile">
-						<img src="/static/images/profile-pic.png">
+						<img src="{% static 'images/profile-pic.png' %}">
 						<div>
 							<p>John Nicholson</p>
 							<small>
@@ -160,15 +162,15 @@
 						<textarea rows="3" placeholder="What's on your mind, John?"></textarea>
 						<div class="add-post-links">
 							<a href="#">
-								<img src="/static/images/live-video.png">
+								<img src="{% static 'images/live-video.png' %}">
 								Live Video
 							</a>
 							<a href="#">
-								<img src="/static/images/photo.png">
+								<img src="{% static 'images/photo.png' %}">
 								Photo/Video
 							</a>
 							<a href="#">
-								<img src="/static/images/feeling.png">
+								<img src="{% static 'images/feeling.png' %}">
 								Feeling/Activity
 							</a>
 						</div>
@@ -177,7 +179,7 @@
 				<div class="post-container">
 					<div class="post-row">
 						<div class="user-profile">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<div>
 								<p>John Nicholson</p>
 								<span>June 21 2021, 13:40</span>
@@ -192,24 +194,24 @@
 						<a href="#">#letstrythis</a>
 						<a href="#">#youtube</a>
 					</p>
-					<img src="/static/images/feed-image-1.png" class="post-img">
+					<img src="{% static 'images/feed-image-1.png' %}" class="post-img">
 					<div class="post-row">
 						<div class="activity-icons">
 							<div>
-								<img src="/static/images/like-blue.png">
+								<img src="{% static 'images/like-blue.png' %}">
 								120
 							</div>
 							<div>
-								<img src="/static/images/comments.png">
+								<img src="{% static 'images/comments.png' %}">
 								19
 							</div>
 							<div>
-								<img src="/static/images/share.png">
+								<img src="{% static 'images/share.png' %}">
 								120
 							</div>
 						</div>
 						<div class="post-profile-icon">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<i class="fas fa fa-caret-down"></i>
 						</div>
 					</div>
@@ -217,7 +219,7 @@
 				<div class="post-container">
 					<div class="post-row">
 						<div class="user-profile">
-							<img src="/static/images/member-2.png">
+							<img src="{% static 'images/member-2.png' %}">
 							<div>
 								<p>Jackson Aston</p>
 								<span>June 21 2021, 3:40</span>
@@ -232,24 +234,24 @@
 						<a href="#">#letstrythis</a>
 						<a href="#">#youtube</a>
 					</p>
-					<img src="/static/images/feed-image-2.png" class="post-img">
+					<img src="{% static 'images/feed-image-2.png' %}" class="post-img">
 					<div class="post-row">
 						<div class="activity-icons">
 							<div>
-								<img src="/static/images/like.png">
+								<img src="{% static 'images/like.png' %}">
 								120
 							</div>
 							<div>
-								<img src="/static/images/comments.png">
+								<img src="{% static 'images/comments.png' %}">
 								19
 							</div>
 							<div>
-								<img src="/static/images/share.png">
+								<img src="{% static 'images/share.png' %}">
 								120
 							</div>
 						</div>
 						<div class="post-profile-icon">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<i class="fas fa fa-caret-down"></i>
 						</div>
 					</div>
@@ -257,7 +259,7 @@
 				<div class="post-container">
 					<div class="post-row">
 						<div class="user-profile">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<div>
 								<p>John Nicholson</p>
 								<span>June 21 2021, 13:40</span>
@@ -272,24 +274,24 @@
 						<a href="#">#letstrythis</a>
 						<a href="#">#youtube</a>
 					</p>
-					<img src="/static/images/feed-image-3.png" class="post-img">
+					<img src="{% static 'images/feed-image-3.png' %}" class="post-img">
 					<div class="post-row">
 						<div class="activity-icons">
 							<div>
-								<img src="/static/images/like.png">
+								<img src="{% static 'images/like.png' %}">
 								120
 							</div>
 							<div>
-								<img src="/static/images/comments.png">
+								<img src="{% static 'images/comments.png' %}">
 								19
 							</div>
 							<div>
-								<img src="/static/images/share.png">
+								<img src="{% static 'images/share.png' %}">
 								120
 							</div>
 						</div>
 						<div class="post-profile-icon">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<i class="fas fa fa-caret-down"></i>
 						</div>
 					</div>
@@ -297,7 +299,7 @@
 				<div class="post-container">
 					<div class="post-row">
 						<div class="user-profile">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<div>
 								<p>John Nicholson</p>
 								<span>June 21 2021, 13:40</span>
@@ -309,24 +311,24 @@
 					</div>
 					
 					<p class="post-text"></p>
-					<img src="/static/images/feed-image-4.png" class="post-img">
+					<img src="{% static 'images/feed-image-4.png' %}" class="post-img">
 					<div class="post-row">
 						<div class="activity-icons">
 							<div>
-								<img src="/static/images/like.png">
+								<img src="{% static 'images/like.png' %}">
 								120
 							</div>
 							<div>
-								<img src="/static/images/comments.png">
+								<img src="{% static 'images/comments.png' %}">
 								19
 							</div>
 							<div>
-								<img src="/static/images/share.png">
+								<img src="{% static 'images/share.png' %}">
 								120
 							</div>
 						</div>
 						<div class="post-profile-icon">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<i class="fas fa fa-caret-down"></i>
 						</div>
 					</div>
@@ -334,7 +336,7 @@
 				<div class="post-container">
 					<div class="post-row">
 						<div class="user-profile">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<div>
 								<p>John Nicholson</p>
 								<span>June 21 2021, 13:40</span>
@@ -346,24 +348,24 @@
 					</div>
 					
 					<p class="post-text">Meeting going on</p>
-					<img src="/static/images/feed-image-5.png" class="post-img">
+					<img src="{% static 'images/feed-image-5.png' %}" class="post-img">
 					<div class="post-row">
 						<div class="activity-icons">
 							<div>
-								<img src="/static/images/like.png">
+								<img src="{% static 'images/like.png' %}">
 								120
 							</div>
 							<div>
-								<img src="/static/images/comments.png">
+								<img src="{% static 'images/comments.png' %}">
 								19
 							</div>
 							<div>
-								<img src="/static/images/share.png">
+								<img src="{% static 'images/share.png' %}">
 								120
 							</div>
 						</div>
 						<div class="post-profile-icon">
-							<img src="/static/images/profile-pic.png">
+							<img src="{% static 'images/profile-pic.png' %}">
 							<i class="fas fa fa-caret-down"></i>
 						</div>
 					</div>
@@ -408,7 +410,7 @@
 					<h4>Advertisement</h4>
 					<a href="#">Close</a>
 				</div>
-				<img src="/static/images/advertisement.png" class="sidebar-ads">
+				<img src="{% static 'images/advertisement.png' %}" class="sidebar-ads">
 
 				<div class="sidebar-title">
 					<h4>Conversation</h4>
@@ -416,19 +418,19 @@
 				</div>
 				<div class="online-list">
 					<div class="online">
-						<img src="/static/images/member-1.png">
+						<img src="{% static 'images/member-1.png' %}">
 					</div>
 					<p>Alison Mina</p>
 				</div>
 				<div class="online-list">
 					<div class="online">
-						<img src="/static/images/member-2.png">
+						<img src="{% static 'images/member-2.png' %}">
 					</div>
-					<p>Jackson Aston</p>
+					<p>Jackson Aston</p> 
 				</div>
 				<div class="online-list">
 					<div class="online">
-						<img src="/static/images/member-3.png">
+						<img src="{% static 'images/member-3.png' %}"' %}"
 					</div>
 					<p>Samona Rose</p>
 				</div>
@@ -438,6 +440,6 @@
 			<p>Copyright 2021 - Lets Try This YouTube Channel</p>
 		</div>
 
-		<script src="/static/js/script.js"></script>
+		<script src="{% static 'js/script.js' %}"></script>
 	</body>
 </html>
