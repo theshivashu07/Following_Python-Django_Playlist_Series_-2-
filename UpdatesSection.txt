@@ -408,7 +408,7 @@ And in the next lecture we implement the code that how to we generate routing or
 
 
 
-Here we again make html file, because of whech html code we indsert first this is a only one single page, so must to we download another code, where multiple files available. so now commit as "Lecture 19 2.0". 
+Here we again make html file, because of which html code we insert first this is a only one single page, so must to we download another code, where multiple files available. so now commit as "Lecture 19 2.0". 
 
 
 ===================================================================================================
@@ -453,6 +453,16 @@ index.html and others
 Now i'm starting to explain in the first. In the 'SEPARATE-1.html' file, we include the HEADER and FOOTER files, which means there exist your header and footers, but in its middle section we make a place for block with name, so that when we extend it in future in other html files, so on that file with extending we also gives its middle section code also.
 And as we do there in the other files, so things are same, but always remember the name of bases, because here is must that we use unique name for base, because many times we use multiple bases, so that you always remember.  
 And yess these 'include' and 'extends' are a django's tags. Actually here we use two type of ways we use, and its no change in actual code, first is we use include keyword to connect HEADER and FOOTER files, and in second we direct written code. So actually these thigs are same, no worry about that, i'm just to show that we also do thing in this way. So we make SEPARATE.html files separately here, and to check our second html file, you want to change extends file name in every file's top. 
+
+
+
+Let's we do that with the help of SEPARATE-2.html file, because there is we not including HEADER and FOOTER file's data, because we direct write there whole code, so nothing a big change is this, but just to know that this way also we have, so we again rewrite and commit as "Lecture 21 2.0".
+And don't think that you handle this file name dynamically, with value pass, because with all ways code is not working currectly, i don't know why maybe i don't know about this technique, but no dynamically done that is not possible:
+{% extends '{{passdata}}' %}  |  data={'passdata' : "SEPARATE-1.html"}    : Wrong 
+{% extends {{passdata}} %}  |  data={'passdata' : "'SEPARATE-1.html'"}    : Wrong 
+{{passdata}}  |  data={'passdata' : "{% extends 'SEPARATE-1.html' %}"}    : Wrong 
+
+
 
 
 ===================================================================================================
@@ -587,6 +597,21 @@ Here no ristriction about data size, and data is not going on url. We also send 
 Now how to we recieve this data, we will discuss later. There is some more methods, like to delete anythong there is DELETE Method, to modifying data we use PUT Method, and PATCH Method is also use for modifications. 
 So now we know that which type of methods in Django, so mainly we use only GET and POST method in general, whenever we want to work securely so we use POST Method, but whenever dont needed to use sequrity related things, like in search, so there we use POST Method. 
 In this lecture we not do codes, but in next lecture we see both methods in prectically. 
+
+
+
+
+---------------------------------------------------------
+Case study of "Lecture 24 2.0 Overall SumUp"
+---------------------------------------------------------
+
+
+Actually in this lecture we not make a code, accotrding to routine we commit this code also, and after that, i realize that, before some commits i forgot "Lecture 21 2,0" commit, "UpdatesSection.txt" file's whole data, because after its commit, when we want that we not needed  "Lecture 21 2,0" commit code change, so i do back commit and considering  "Lecture 21" commit, but i forgot that i lost "UpdatesSection.txt" file's data too. And when i do that again, then i remembered that mistake, so this second "Lecture 24 2.0 Overall SumUp" commit is for that mistake. And also reback the commit to "Lecture 22 2.0", because i don't want to needed the latest commmit related things, and not considering these things. So that we reback all these commits. 
+
+
+
+===================================================================================================
+
 
 
 
