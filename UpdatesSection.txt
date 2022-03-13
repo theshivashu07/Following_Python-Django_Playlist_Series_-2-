@@ -467,7 +467,28 @@ So there is two ways to manage urls, you direct pass url or second way is you us
 So first we see first way to atteched links so that there everything works perfectly. So "Lecture 22" is our first commit.
 Here you one thing remember always, you always write links in html as "/" or "/services" or "/services/", so that it always works well, otherwise if you write like: "services" or "services/" then these creates a problem, and why it creates problem because if you write slas sign in prefix then it sure that you want to add this location after's you actual path, because your actual path is set.
 
-
+Now we will see the second way, here suppose you dont want to give url links, so you also use url tags, it also helpful to gives the links, but there is things are changed now, means you want to first go on urls.py, and in every links path, pass one more argument as name=value. You gives any name there, but remember always the name whenever you use url tags, because we needed these to write name under tags. and this is the "Lectuer 22 2.0" commit section.
+urls.py
+.......................
+urlpatterns = [
+    path('',views.index,name="index"),
+    path('index/',views.index, name="index"),
+    path('about-us/',views.aboutus, name="about-us"),
+    path('services/',views.services, name="services"),
+    path('gallery/',views.gallery, name="gallery"),
+    path('contact/',views.contact, name="contact"),
+    path('admin/', admin.site.urls),
+]
+And the go on html file, and in the places of link provide url tags, so that the accessable using names. 
+HEADER.html
+.............................................
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'about-us' %}">About Us</a></li>
+    <li><a href="{% url 'services' %}">Our Services</a></li>
+    .............................................
+    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+.............................................
 
 
 
