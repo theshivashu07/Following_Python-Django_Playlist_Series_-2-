@@ -51,9 +51,12 @@
           <!-- left menu items -->
           <div class="top-nav left-menu">
              <ul class="right top-ul chevron">
-                <li class="{% if request.path == '/' %} active {% endif %}"><a href="{% url '' %}">Home</a></li>
-                <li class="{% if request.path == '/about-us/' %} active {% endif %}"><a href="{% url 'about-us' %}">About Us</a></li>
-                <li class="{% if request.path == '/services/' %} active {% endif %}"><a href="{% url 'services' %}">Our Services</a></li>
+                {% url '' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Home</a></li>
+                {% url 'about-us' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">About Us</a></li>
+                {% url 'services' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Our Services</a></li>
              </ul>
           </div>
           
@@ -77,8 +80,10 @@
                     <li><a>Product 2</a></li>
                   </ul>
                 </li>
-                <li class="{% if request.path == '/gallery/' %} active {% endif %}"><a href="{% url 'gallery' %}">Gallery</a></li>
-                <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
+                {% url 'gallery' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Gallery</a></li>
+                {% url 'contact' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Contact</a></li>
              </ul> 
           </div>
         </div>

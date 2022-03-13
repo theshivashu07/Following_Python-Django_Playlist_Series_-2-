@@ -516,11 +516,38 @@ HEADER.html
     <li class="{% if request.path == '/gallery/' %} active {% endif %}"><a href="{% url 'gallery' %}">Gallery</a></li>
     <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
 ...................................
-Actually if we do apply these css part, so it not works well, because there already javascript implemented, but yess little bit blink shown there, means which type of task we want to do, its working there. And one thing to discuss that not must to implement that, but its because suppose we needed this thing to implement in our project then we not face trubble.
+Actually if we do apply these css part, so it not works well, because there already javascript implemented, but yess little bit blink shown there, means which type of task we want to do, its working there. And one thing to discuss that not must to implement that, but its because suppose we needed this thing to implement in our project then we not face trubble, so that i implemented it. Its first commit.
+And this is the static way, to implement code for highlight link in django. And yess whatever property you want in future, apply it.
 
+Now we will see the second way, here we use url tags, and under it we make alias for everyone's. like:
+...............................
+    {% url '' as url %}
+    <li><a href="{{url}}">Home</a></li>
+    {% url 'about-us' as url %}
+    <li><a href="{{url}}">About Us</a></li>
+    {% url 'services' as url %}
+    <li><a href="{{url}}">Our Services</a></li>
+    {% url 'gallery' as url %}
+    <li><a href="{{url}}">Gallery</a></li>
+    {% url 'contact' as url %}
+    <li><a href="{{url}}">Contact</a></li>
+...............................
 
+Now we are implementing the main feature, that how to "active" working there, so one thing must to you know that there is url works as variable, but mekoo lgg rha, this second way's code is very lengthy, but you learn it in advance, maybe any place, any situation, any where you want to use this logic in future. But yess there is we get url and for every url's we make as url, means we store every link in url variable, so thats the process we do there...
+...............................
+    {% url '' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Home</a></li>
+    {% url 'about-us' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">About Us</a></li>
+    {% url 'services' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Our Services</a></li>
+    {% url 'gallery' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Gallery</a></li>
+    {% url 'contact' as url %}
+    <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Contact</a></li>
+...............................
 
-
+So overall thing is we implemented it currectly and perfectly. But in my project its show only blinks because here internal tag use another css, and because internal css is highly prefrensial, so that there is its blinking in red color only. So with both logics we inplemented these routes. 
 
 
 
