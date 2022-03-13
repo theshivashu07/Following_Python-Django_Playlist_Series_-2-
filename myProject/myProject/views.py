@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 
-def homepage(request):
+def index(request):
     return render(request,'index.html');
 
 def aboutus(request):
@@ -20,7 +20,8 @@ def services(request):
 def gallery(request):
     return render(request,'gallery.html');
 
-
+def contact(request):
+    return render(request,'contact.html');
 
 
 

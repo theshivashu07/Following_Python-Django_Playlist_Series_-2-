@@ -410,15 +410,30 @@ And in the next lecture we implement the code that how to we generate routing or
 
 Here we again make html file, because of whech html code we indsert first this is a only one single page, so must to we download another code, where multiple files available. so now commit as "Lecture 19 2.0". 
 
+
 ===================================================================================================
 
 
 
+20 - Common Header & Footer in Django HTML Template (Fix Header & Footer)
+
+Actually we know that in our file our header & footer always same, so the idea is we make a two extra file and there common code we write who repeting in every line, so we saperating hedder and footer's code saperatly, and other files are join this code as chiled. So you just follow steps. Here we use "include" keyword who help us to join templates ones to others, so using this you add both files section to other file's code. And incude helps us to implement components or chiled's page code. 
+
+So first you make a separate files, like we cut header in other saperate file, and footer in other saperate file. And then you include both file's in the top and bottom in other files where same code exist, so first you cut same code. just like this way:
+index.html
+{% include "HEADER.html" %}   // after cut same header code
+// In this section our index file's real code exist. 
+{% include "FOOTER.html" %}   // after cut same footer code
+
+Now our code is again works perfectly, so here we use "include" keyword to do that. But in the next lecture we will talk about that way, like same we learn in internship time. Means how we do header and footer in the same html file, and then do "include" and "extend" keyword, With the help of this we change middle data content. 
 
 
 
+===================================================================================================
 
 
+
+A 
 
 
 
