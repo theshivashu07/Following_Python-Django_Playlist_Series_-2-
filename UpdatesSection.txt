@@ -425,19 +425,37 @@ index.html
 // In this section our index file's real code exist. 
 {% include "FOOTER.html" %}   // after cut same footer code
 
-Now our code is again works perfectly, so here we use "include" keyword to do that. But in the next lecture we will talk about that way, like same we learn in internship time. Means how we do header and footer in the same html file, and then do "include" and "extend" keyword, With the help of this we change middle data content. 
+Now our code is again works perfectly, so here we use "include" keyword to do that. But in the next lecture we will talk about that way, like same we learn in internship time. Means how we do header and footer in the same html file, and then do use "extend" keyword, With the help of this we change midlle data content. 
 
 
 
 ===================================================================================================
 
 
+21 - How to use the Extends and Include Django Template Tags 
 
-A 
+We already know that "include" keyword helps us to include any other files code. But "extend" keywords use is totally different from "include" keyword. Actually with this helps, we replacing middle section's code from a file, like we do in SEPARATE.html. So there middle sections data extend always, according to the situation's or other html file's middle block codes. So with the logic of extend, you dont want to call header and footer's file in each and every time, these file are going on SEPARATE.html file, and include there. So how to we implement that lets see this: 
+
+So things are simple here, that "include" provide us the feature that you include the any file's code on any another file. But "extend" provide a feature that you create header and footer saperately and extend the middle section's data according to situation. So that our code is less now and much more systomatic. 
+
+SEPARATE-1.html
+{% include "HEADER.html" %}
+{% block blockname %}
+{% endblock %}
+{% include "FOOTER.html" %}
+
+index.html and others
+{% extends 'SEPARATE-1.html' %}
+{% block blockname %}
+// In this section our index file's real code exist. 
+{% endblock %}
+
+Now i'm starting to explain in the first. In the 'SEPARATE-1.html' file, we include the HEADER and FOOTER files, which means there exist your header and footers, but in its middle section we make a place for block with name, so that when we extend it in future in other html files, so on that file with extending we also gives its middle section code also.
+And as we do there in the other files, so things are same, but always remember the name of bases, because here is must that we use unique name for base, because many times we use multiple bases, so that you always remember.  
+And yess these 'include' and 'extends' are a django's tags. Actually here we use two type of ways we use, and its no change in actual code, first is we use include keyword to connect HEADER and FOOTER files, and in second we direct written code. So actually these thigs are same, no worry about that, i'm just to show that we also do thing in this way. So we make SEPARATE.html files separately here, and to check our second html file, you want to change extends file name in every file's top. 
 
 
-
-
+===================================================================================================
 
 
 
