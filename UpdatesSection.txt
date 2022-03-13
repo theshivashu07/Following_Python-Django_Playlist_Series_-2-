@@ -557,18 +557,36 @@ So overall thing is we implemented it currectly and perfectly. But in my project
 
 
 
+24 - HTTP Request Methods in Django (Get & Post) 
+
+In django many other type of methods available, like: get, post, patch, put, delete or more. But now we are learning main methods GET and POST only. With these helps we will implementing many logic, and we will see that what is the difference between both. 
 
 
+GET Method:
+The GET Method sends the encoded user information appended to the page request. The page and the encoded information are separated by the ? character. 
+https://www.shivashu.com/index.html?name1=value1&name2=value2
+Restricted to send upto 2024 characters length only.
+Never use GET Method, if you have password or other sensitive information.
+Cannot be used to send binary data, like images or Word documents, to the server.
+
+Actually whenever yo fill the data and submit it, so this method append the whole information on url, with the help of key-values pair, and saperated by ? sign, such as the above example.
+And whenever you use GET method, so there is your data is not sequred, because other people also see your data, so this is not a right ways. We generally in serching only use get method, but must is your data size is less then 1024 characters. And never use it on as payment getway, because its not secured. Because everyone see your get methods data in your URL. 
 
 
+POST Method: 
+The POST Method transfers information via HTTP headers. The information is encoded at described in case of GET Method and put into a header called QUERY_STRING. 
+Does not have any restriction on data size to be sent. 
+Can be used to send ASCII as well as binary data. 
+The data sent by POST Method goes through HTTP header, so security depends on HTTP protocol.
+By using secure HTTP you can make sure that your information is secure. 
+
+It sends whole data or information in HTTP headers, actually HTTPS headers is only for developers, when we switching in prectical then we will see that where is it is exist, so it seds whole information in HTTP headers, basically it was secured method. Like any user is come and fill informations so whole information is sent to headers. 
+Here no ristriction about data size, and data is not going on url. We also send binary data with POST Method. And one problem is with GET method is, if we submit informations so show in url's, so user also submin many information directly in url, but there is no chances to heppens this. payments, logins and registerations related things we sends there. 
 
 
-
-
-
-
-
-
+Now how to we recieve this data, we will discuss later. There is some more methods, like to delete anythong there is DELETE Method, to modifying data we use PUT Method, and PATCH Method is also use for modifications. 
+So now we know that which type of methods in Django, so mainly we use only GET and POST method in general, whenever we want to work securely so we use POST Method, but whenever dont needed to use sequrity related things, like in search, so there we use POST Method. 
+In this lecture we not do codes, but in next lecture we see both methods in prectically. 
 
 
 
