@@ -497,6 +497,51 @@ HEADER.html
 
 
 
+23 - How to Highlight Link in Django
+
+Now we will learn that how to we highlight any link? So that which page is open its show as highlighted portion.  
+By the way in my project it automatically working well, maybe javascript working perfectly. But i'm also trying to implement that by django way. Here we use "{{request.path}}" under html file, first we check that on which path we are, so it return path? and with it we apply logic there, means we apply if else statement, and how? you just see there! 
+personallyimplementation.css
+header .active a{
+    background-color: red;
+}
+So, here first we create one css file, and include this file in HEADER.html file's top. And then we are changing our tags logics like:
+HEADER.html
+...................................
+    <link rel="stylesheet" href="/static/css/personallyimplementation.css">
+...................................
+    <li class="{% if request.path == '/' %} active {% endif %}"><a href="{% url '' %}">Home</a></li>
+    <li class="{% if request.path == '/about-us/' %} active {% endif %}"><a href="{% url 'about-us' %}">About Us</a></li>
+    <li class="{% if request.path == '/services/' %} active {% endif %}"><a href="{% url 'services' %}">Our Services</a>
+    <li class="{% if request.path == '/gallery/' %} active {% endif %}"><a href="{% url 'gallery' %}">Gallery</a></li>
+    <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
+...................................
+Actually if we do apply these css part, so it not works well, because there already javascript implemented, but yess little bit blink shown there, means which type of task we want to do, its working there. And one thing to discuss that not must to implement that, but its because suppose we needed this thing to implement in our project then we not face trubble.
+
+
+
+
+
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -14,7 +14,11 @@
     <link rel="stylesheet" href="/static/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="/static/owl-carousel/owl.theme.css">
     <link rel="stylesheet" href="/static/css/lightcase.css">
-    <!-- CUSTOM STYLE -->      
+
+    <!-- situation related personally implementation is it! -->
+    <link rel="stylesheet" href="/static/css/personallyimplementation.css">
+
+    <!-- CUSTOM STYLE --> 
     <link rel="stylesheet" href="/static/css/template-style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,700,900&amp;subset=latin-ext" rel="stylesheet"> 
     <script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
@@ -40,12 +44,16 @@
           </div>                  
           <p class="nav-text"></p>
           
+          <!-- It return the path, we use it to know that what is our path here.. -->
+          <!--{{request.path}}-->
+
+
           <!-- left menu items -->
           <div class="top-nav left-menu">
              <ul class="right top-ul chevron">
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'about-us' %}">About Us</a></li>
-                <li><a href="{% url 'services' %}">Our Services</a></li>
+                <li class="{% if request.path == '/' %} active {% endif %}"><a href="{% url '' %}">Home</a></li>
+                <li class="{% if request.path == '/about-us/' %} active {% endif %}"><a href="{% url 'about-us' %}">About Us</a></li>
+                <li class="{% if request.path == '/services/' %} active {% endif %}"><a href="{% url 'services' %}">Our Services</a></li>
              </ul>
           </div>
           
@@ -69,8 +77,8 @@
                     <li><a>Product 2</a></li>
                   </ul>
                 </li>
-                <li><a href="{% url 'gallery' %}">Gallery</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li class="{% if request.path == '/gallery/' %} active {% endif %}"><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
              </ul> 
           </div>
         </div>
