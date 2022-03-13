@@ -454,31 +454,25 @@ Now i'm starting to explain in the first. In the 'SEPARATE-1.html' file, we incl
 And as we do there in the other files, so things are same, but always remember the name of bases, because here is must that we use unique name for base, because many times we use multiple bases, so that you always remember.  
 And yess these 'include' and 'extends' are a django's tags. Actually here we use two type of ways we use, and its no change in actual code, first is we use include keyword to connect HEADER and FOOTER files, and in second we direct written code. So actually these thigs are same, no worry about that, i'm just to show that we also do thing in this way. So we make SEPARATE.html files separately here, and to check our second html file, you want to change extends file name in every file's top. 
 
-Let's we do that with the help of SEPARATE-2.html file, because there is we not including HEADER and FOOTER file's data, because we direct write there whole code, so nothing a big change is this, but just to know that this way also we have, so we again rewrite and commit as "Lecture 21 2.0".
-And don't think that you handle this file name dynamically, with value pass, because with all ways code is not working currectly, i don't know why maybe i don't know about this technique, but no dynamically done that is not possible:
-{% extends '{{passdata}}' %}  |  data={'passdata' : "SEPARATE-1.html"}    : Wrong 
-{% extends {{passdata}} %}  |  data={'passdata' : "'SEPARATE-1.html'"}    : Wrong 
-{{passdata}}  |  data={'passdata' : "{% extends 'SEPARATE-1.html' %}"}    : Wrong 
-
-
 
 ===================================================================================================
 
 
 
+22 - How to use URL Template Tags in Django
+
+Here we learn about how to we make URL template tags, means if we make a website and many more pages atteched with it, like about-us, services, gallarg, contact and more, so how to you connect them, so that this websites work perfectly, because now we want to go on search bar and rewrite url again and again for every different page, so how to we directly connect these, we see there...
+So there is two ways to manage urls, you direct pass url or second way is you use attribute under url and then use html tag, so here we see in prectically, that how to both things are heppen. 
+
+So first we see first way to atteched links so that there everything works perfectly. So "Lecture 22" is our first commit.
+Here you one thing remember always, you always write links in html as "/" or "/services" or "/services/", so that it always works well, otherwise if you write like: "services" or "services/" then these creates a problem, and why it creates problem because if you write slas sign in prefix then it sure that you want to add this location after's you actual path, because your actual path is set.
 
 
 
 
 
 
-
-
-
-
-
-
-
+===================================================================================================
 
 
 
