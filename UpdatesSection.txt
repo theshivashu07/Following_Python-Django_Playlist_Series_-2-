@@ -454,8 +454,29 @@ Now i'm starting to explain in the first. In the 'SEPARATE-1.html' file, we incl
 And as we do there in the other files, so things are same, but always remember the name of bases, because here is must that we use unique name for base, because many times we use multiple bases, so that you always remember.  
 And yess these 'include' and 'extends' are a django's tags. Actually here we use two type of ways we use, and its no change in actual code, first is we use include keyword to connect HEADER and FOOTER files, and in second we direct written code. So actually these thigs are same, no worry about that, i'm just to show that we also do thing in this way. So we make SEPARATE.html files separately here, and to check our second html file, you want to change extends file name in every file's top. 
 
+Let's we do that with the help of SEPARATE-2.html file, because there is we not including HEADER and FOOTER file's data, because we direct write there whole code, so nothing a big change is this, but just to know that this way also we have, so we again rewrite and commit as "Lecture 21 2.0".
+And don't think that you handle this file name dynamically, with value pass, because with all ways code is not working currectly, i don't know why maybe i don't know about this technique, but no dynamically done that is not possible:
+{% extends '{{passdata}}' %}  |  data={'passdata' : "SEPARATE-1.html"}    : Wrong 
+{% extends {{passdata}} %}  |  data={'passdata' : "'SEPARATE-1.html'"}    : Wrong 
+{{passdata}}  |  data={'passdata' : "{% extends 'SEPARATE-1.html' %}"}    : Wrong 
+
+
 
 ===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
