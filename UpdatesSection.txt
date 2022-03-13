@@ -614,6 +614,45 @@ Actually in this lecture we not make a code, accotrding to routine we commit thi
 
 
 
+25 - How to Implement a Form with Get Method
+
+To implement GET method logic, first we take a form in webpage, and making this form time we take two things first action and second is method, so how to we use this action and method on our views file, and how to we use form's data in views, and then how to send this data to html file, this whole process we will see there in prectically. 
+
+Here we do many things, like first make USERFORM.html file, so that there in text boxes we do calculations, and we also make url on urls.py and function on views.py. So here we take two text boxes to take values, and then submitt these values, and it return values as result on below text boxes. And in views function, we use try and except block because whenever we are open this url first time, so there is a chance to come errors, because in first default call no values are coming on this function or request variable, so thats why we do that, and thats the reason why i'm having data variavle in extra for empty dictionary. And in other side, to get passing values there is two ways, and both are works same. 
+val1=int(request.GET["firstvalue"]);
+val2=int(request.GET["secondvalue"]);
+# val1=int(request.GET.get("firstvalue"));
+# val2=int(request.GET.get("secondvalue"));
+
+Actually we also pass all values by views to that webpage in reverse, so that when you submit data, so with result your submitted values also show in the text-box, because otherwise after submitt only result's fields are become full, values fields are empty after submition. And i'm also set 'required' fix field in html page, so that there is must to pass values on the form, otherwise data is never submitting. 
+And i'm make "userform" link for represent this form, so because there is no options to connect this in webpage, so i'm linking it in website's product's first link as "User Form", so to access it you prefer this, and you also able to direct url call.
+
+But a big problem with this GET method is if you fill form first time so there ismake url like:
+http://127.0.0.1:8000/userform/?firstvalue=10&secondvalue=20&addition=&multiplication=
+So there is problem comes because, in this method you directly change value by url, without to fill form, like:
+http://127.0.0.1:8000/userform/?firstvalue=11&secondvalue=24&addition=&multiplication=
+http://127.0.0.1:8000/userform/?firstvalue=12&secondvalue=28&addition=&multiplication=
+So this is the big problem, here you directly writen these urls and enter directly.
+
+And also in these type of works this is must that you use always remember that which type of field's value you take, its name is same as your get mentined name or not? So these all things are always must to remembered because if there is you do mistakes so it creates problems, and you face many trubbles, so do prectical focusly and cleanly.
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
