@@ -758,10 +758,52 @@ In views.py for 'submitform' we implement almost same 'userform' function's logi
 
 
 
+29 - Django Form Tutorial For Beginners - Getting Started
+
+Now the lecture where we make Django's personal Form's model to make form in django. Actually django provide us to make a form according to its own way, there is two ways to make forms, first is using its own Forms Model way and second is using API's, we will dicuss it later. We know recently that we make form by ourself, But now we see that how to we make Forms by Django's personal Forms Model. 
+So First we open our last form, which we make by ourself.
+But first i told that there is first we want to make a forms.py file under modules. Now here we not make a models, because we do make model in future. Buttt always remember that this file is exist under the apps only. So now we make it under project's same name app. And there we import forms library, and then we make a class and gives name which we use when we import this form in viwes.py file. And under it we take forms's class Form, then we makes fields, so by current scenario we want to make two fields, for 'firstvalue' and 'secondvalue', so just see this directly:
+forms.py
+from django import forms
+class userForm(forms.Form):
+    firstvalue=forms.CharField()
+    secondvalue=forms.CharField()
+And then you go on views.py and importing this forms.py file there, and we also change 'userform' url code, there we store our class in one variable, and pass this variable under dictionary, and also on under post's condition we change value by this variable, and render this page to 'userformresult', by the way now here our non post method is call only, because for the after submit form we implement action, who changing the location to a 'submitform' url. Now you just see this code:
+views.py
+from .forms import userForm
+...................
+def userform(request):
+    func=userForm()
+    data={'form':func}
+    ...................
+        data={
+            'form':func,
+            ...................
+        }
+        url='/userformresult/?addition={0}&multiplication={1}'.format(val1+val2,val1*val2)
+        return redirect(url);
+    return render(request,'USERFORM.html',data);
+
+Now we are go on our USERFORM.html file back, and there we remove our textboxes field, and on these places you just write just like that:
+USERFORM.html
+.....................
+    <form method='post' action="{% url 'submitform' %}">
+    {% csrf_token %}
+        {{form}}
+        .....................
+    </form>
+.....................
+And now you see that, there is show your text boxes. Yesss maybe they are not looks managed in you PC, and we do manage, but till now we have textboxes, and there is code runs perfectly. And because we not pass anything on fields when we make class, and thats why its bydefault considered required field, means there is must to pass values on field, but we also change this validation in future.  
 
 
 
 
+
+
+
+
+
+===================================================================================================
 
 
 

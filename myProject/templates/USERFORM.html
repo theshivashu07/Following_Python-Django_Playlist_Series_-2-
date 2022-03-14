@@ -23,6 +23,8 @@
             <h3 class="text-size-30 margin-bottom-40 text-center"><b>USER FORM</b></h3>
             <form method="post" action="{% url 'submitform' %}" class="customform text-white" enctype="multipart/form-data">
             {% csrf_token %}
+              {{form}}
+              <!--
               <div class="line">
                 <div class="margin">
                   <div class="s-12 m-12 l-6">
@@ -33,6 +35,7 @@
                   </div>
                 </div>
               </div>            
+              -->
                               
               <div class="line">       
                 <div class="s-12">
