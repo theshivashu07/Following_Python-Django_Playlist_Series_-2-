@@ -1,0 +1,57 @@
+
+
+
+
+{% extends 'SEPARATE.html' %}
+  {% block mycode %}
+
+
+
+
+
+    
+    <!-- MAIN -->
+    <main role="main">
+      <article>    
+
+        <!-- Section 3 -->
+        <section class="section background-dark">
+
+        <br><br><br><br><br><br><br>
+
+          <div class="s-12 m-12 l-4 center">
+            <h3 class="text-size-30 margin-bottom-40 text-center"><b>USER FORM RESULT</b></h3>
+            <form method="get" class="customform text-white" enctype="multipart/form-data">
+              <div class="line">
+                <div class="s-12">
+                  <input name="addition" class="required subject" placeholder="Addition is there!" title="Subject" type="text" value="{{addition}}" /> 
+                </div>
+                <div class="s-12"> 
+                  <input name="multiplication" class="required subject" placeholder="Multiplication is there!" title="Subject" type="text" value="{{multiplication}}" />
+                  <!-- <textarea name="message" class="required message" placeholder="Your message" rows="3"></textarea> -->
+                </div>
+              </div>    
+
+              <br><br><br>
+
+            </form>
+          </div>           
+        </section>
+
+      </article>
+    </main>
+    
+
+
+
+
+
+
+
+  {% endblock %}
+
+
+
+
+
+

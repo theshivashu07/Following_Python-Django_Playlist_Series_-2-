@@ -27,6 +27,7 @@ urlpatterns = [
     path('gallery/',views.gallery, name="gallery"),
     path('contact/',views.contact, name="contact"),
     path('userform/',views.userform, name="userform"), 
+    path('userformresult/',views.userformresult, name="userformresult"), 
     
     path('admin/', admin.site.urls),
 ]

@@ -677,6 +677,57 @@ Now as developer, we want to know that where is my data gone is we enter this da
 
 
 
+===================================================================================================
+
+
+
+27 - How to Redirect Page in Django?
+
+Now we see how to we implement the redirection page, like if we successfully login on any site so control is shifting from our actual id, or show thankyou page. Means without clicking link we direct redirect on page, like in Meta successfully login we redirect on Profile page or after Payment successfully, it redirect on Thankyou page, so these all are redirection's logic. 
+So to implement this redirection logic, we use two function, we see these perctically in there. Now we are implementing these logics just to explain how it is working, but when we are woking on login system in future so there is we also use session, because we store values on session, and use these values in other pages, in future. So lets now we implement these redirection's logic here...
+
+So initially we import our first 'HttpResponseRedirect' function form django.http, so that you able to use redirect. And now you implement this logic on your "userform", so after your values put, whenever you click on button so it not display your result on you below text boxes, it redirected you on the other webpage like to other webpage. 
+So because this redirection is a good property there, so i'm making a one more webpage as USERFORMRESULT.html and also make url in urls.py and function in views.py. And i'm make "userformresult" link for represent this form, so because there is no options to connect this in webpage, so i'm linking it in website's product's second link as "U.F. Result", so to access it you prefer this, and you also able to direct url call.
+So after use redircect method you jumping on other webpage, only here we pass path on that location where we want to jump. Now we are also trying to sent all data on redirected page, so that your result is shown there. So for it with path, we also pass path and atteched values saperated by '?' and '&' sign, as string on redirect method. 
+
+views.py (Overall! Here included both ways and functions.)
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+.......................
+def userform(request):
+    .......................
+        url='/userformresult/?addition={0}&multiplication={1}'.format(val1+val2,val1*val2)
+        # return HttpResponseRedirect(url);     # first way
+        return redirect(url);     # second way
+    .......................
+def userformresult(request):
+    data={}
+    if request.method=="GET":
+        addition=request.GET.get('addition');
+        multiplication=request.GET.get('multiplication');
+        data={'addition':addition, 'multiplication':multiplication}
+    return render(request,'USERFORMRESULT.html',data);
+
+So in this way we redirect files, and in this way we passes values, and we use this way to send values, because we don't want to use sessions here. Session logic we implemented after some lectures, when we working on logic and registration related things. 
+And more thing we've to discuss is that, with the form tag, with 'method' we also use 'action' there, but now we not use it. If we not use 'action' so it takes your webpage's current url, means take till the userform's location path by itself's. In 'action' we pass that you can redirect from one page to another page, and get the value of this page there. So we will see 'action' in the next lecture that how to you access this page's post method data, in the other page.
+
+
+So now we import our second 'redirect' function form django.shortcuts, using this we also able to use redirection. And it works same as HttpResponseRedirect, you only replace 'redirect' name on its places, thats it. 
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
 
 
 
