@@ -26,18 +26,19 @@ def contact(request):
 def userform(request):
     data={}  # its must because if not passes values to data variable is like error, because its not showing anywhere and directly we use it.
     try:
-        # Both ways working correctly!
-        val1=int(request.GET["firstvalue"]);
-        val2=int(request.GET["secondvalue"]);
-        # val1=int(request.GET.get("firstvalue"));
-        # val2=int(request.GET.get("secondvalue"));
-        # print(val1+val2); 
-        data={
-            'firstvalue' : val1,
-            'secondvalue' : val2,
-            'addition' : val1+val2,
-            'multiplication' : val1*val2,
-        }
+        if request.method=="POST":
+            # Both ways working correctly!
+            val1=int(request.POST["firstvalue"]);
+            val2=int(request.POST["secondvalue"]);
+            # val1=int(request.POST.get("firstvalue"));
+            # val2=int(request.POST.get("secondvalue"));
+            print(val1+val2); 
+            data={
+                'firstvalue' : val1,
+                'secondvalue' : val2,
+                'addition' : val1+val2,
+                'multiplication' : val1*val2,
+            }
     except:
         pass
     return render(request,'USERFORM.html',data);

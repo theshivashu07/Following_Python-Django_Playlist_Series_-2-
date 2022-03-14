@@ -642,13 +642,37 @@ And also in these type of works this is must that you use always remember that w
 
 
 
+26 - Create Form using POST Method with CSRF Token in Django
 
+Now we see how to we use POST Method, and with this method how to we use CSRF token. Actually whenever any form submitted so django always check that your submitted data is really coming from the actual resource or domain, or not? So csrf play a role there to validate a data, and it always generate token and sent with request, and then django check in the background and validate that this token is comingform the actual resources. Actually hackers always hit your website's whole form's data with these internal resources, but if you put csrf token there, so hackers are not able to do spemmings. So to make your form's data secure, and want to stopped spemmings must to we use csrf tokens. 
+So means is simple its a very very secure thing provided by django. Its not sent your data on url, it just sent on http request, and there's we get data and implement our logic. So to use post method, its must that we use CSRF token, so that you able to hit post method. So lets see this in prectical now.
+CSRF Full Form : Cross-Site Request Forgery (CSRF) is an attack that forces authenticated users to submit a request to a Web application against which they are currently authenticated. Actually CSRF is a varification field. 
+USERFORM.html
+.........................
+    <form method="post">
+        {% csrf_token %}
+            .........................
+    </form>
+.........................
+And always remember that, its must that if you use post method in django, so you use CSRF, otherwise there is coming errors. So its must, and its also remembered that, its not generate any fix token, because in every request it creates new token. And to chack that this request is actually changed or not? so to check it you go on brouser and inspect this page and go on form tag, and its just below input field you just see that, there this input type is hidden, means user cant able to see this input firld, and name is fixed, but its value is always changing in every refresh, so thats the proof that in our token is changing always whenever we refresh our page. And thats why hackers never able to break this sequrity. 
+Now we implemeting the logic that how to we get this data, so we go on views.py file, and make a chages, and there is one more thing we add, and its if statement, because there is we use post method, so code is like:
+views.py
+.........................
+def userform(request):
+    try:
+        if request.method=="POST":
+            # Both ways working correctly!
+            val1=int(request.POST["firstvalue"]);
+            val2=int(request.POST["secondvalue"]);
+            # val1=int(request.POST.get("firstvalue"));
+            # val2=int(request.POST.get("secondvalue"));
+            .........................
+    except:
+        pass
+    return render(request,'USERFORM.html',data);
+.........................
 
-
-
-
-
-
+Now as developer, we want to know that where is my data gone is we enter this data and submit it. So to check it you go Inspect, then go on Network option, and then there is show Name, below this Name section you see there is a file, which name is same as your form file name, in my case this file name is "userform" so you open it and chose Headers section and in this file's below you see there is your values and token will show, so there is your value, and you not able to change this data in any ways. So in this way you see your submitted data. 
 
 
 
