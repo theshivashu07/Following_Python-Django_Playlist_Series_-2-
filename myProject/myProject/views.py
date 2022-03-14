@@ -57,6 +57,19 @@ def userformresult(request):
     return render(request,'USERFORMRESULT.html',data);
 
 
+def submitform(request):
+    try:
+        if request.method=="POST":
+            val1=int(request.POST["firstvalue"]);
+            val2=int(request.POST["secondvalue"]);
+            url='/userformresult/?addition={0}&multiplication={1}'.format(val1+val2,val1*val2)
+            print("By 'submitform' URL");
+            # return HttpResponseRedirect(url);     # first way
+            return redirect(url);     # second way
+    except:
+        pass
+    return render(request,'USERFORM.html');
+
 
 
 

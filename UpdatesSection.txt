@@ -720,6 +720,58 @@ So now we import our second 'redirect' function form django.shortcuts, using thi
 
 
 
+28 - HTML Form Action URL in Django
+
+Now we will see all things about 'action' url. Actually whenever you use this 'action' attribute in form tag, means it will be going to another webpage, or maybe you hit any otherone url, and form's whole data you transfer on the other url. So if you not use action in form tag so its bydefault considering parent url or considered which path open on current situation. But using 'action' we able to submit this form's data in other url, so that on that url we call any other view function, and on this way we get this data.
+So overall means is if you submit a form, so you want form's whole data transfer into another form or page or may be hitting another url, and there you implementing this logic. See if we not use 'actions' so 'userform' is our url, and only this url is hitting always if we refreshing it. But with the use of action, we hitting another url, and sends form's data, and there you get this data. So now we will implement this logic by prectical. 
+
+So first we go on USERFORM.html file and add 'action' there, but here we want to make another url on urls'py, and function on views.py, and then we add on action under form tag (as the form of url pattern). So we make there url as 'submitform'. 
+
+USERFORM.html file
+.....................
+    <form method='post' action="{% url 'submitform' %}">
+    {% csrf_token %}
+        .....................
+    </form>
+.....................
+
+urls.py
+.....................
+urlpatterns = [
+    .....................
+    path('submitform/',views.submitform, name="submitform"), 
+]
+
+views.py
+def submitform(request):
+    # Here we implement same 'userform' function's logic
+        .....................
+        print("By 'submitform' URL");
+        .....................
+    .....................
+
+In views.py for 'submitform' we implement almost same 'userform' function's logic, only to represent is unique we print one more line which is show on command prompt, that this control is really going to 'submitform'. SO this is really unique thing, here we are shifting control one url to another, so thats the good way or logic in Django. 
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
