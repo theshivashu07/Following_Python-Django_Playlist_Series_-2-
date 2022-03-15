@@ -835,10 +835,16 @@ Visite a link : https://docs.djangoproject.com/en/4.0/ref/models/fields/
 
 
 
+30 - How to Build a Simple Calculator in Django
+
+Here we make calculator, actually logic is, we want to two textboxes and onedropdown list, where we select operators to perform operatoins between these text box's data.
+So first we make a HTML page and also url on urls.py and function on views.py. And we want to add this link on website, so we add this on Products options list's last on HEADER.html file. So here we adding many things. You see in the code what code we change, because these code changes are basic, and we do make same forms before some lectures, so code is almost same, only one dromdown list we take extra there. 
+
+So we make this perfectly, Here is must to use try and except, because suppose user enter wrong input or maybe its not select operator, so in this case there is come error, but using error handling try and except we manage this error. Here we manage that if we not fill any data or not select any key by html page, yess means there we use required field. And only the main things we mention there and its a eval() function, who solve such as "10*20" strings, so we use it to get result perfectly, but in the case of "shivam*12" there is come error and control is shifted on the except block. So means is clear if we use try except block so our script is never going to break. 
 
 
 
-
+===================================================================================================
 
 
 

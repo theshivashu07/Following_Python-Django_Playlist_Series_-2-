@@ -71,7 +71,43 @@ def submitform(request):
     return render(request,'USERFORM.html');
 
 
+def calculator(request):
+    data={}
+    try:
+        if request.method=="POST":
+            val1=request.POST["firstvalue"];
+            val2=request.POST["secondvalue"];
+            optr=request.POST["opr"];
 
+            """
+            # If you write required field on label tag, so there is must to pass anything there, then no need to write here so long code.
+            if(optr==""):
+                data={
+                    'firstvalue' : val1,
+                    'secondvalue' : val2,
+                    'result':"Something WRONG : Select Operator Also!"
+                    # 'result':"<b style='color: red;'>Select Operator Also!</b>"
+                }
+            else:
+                data={
+                    'firstvalue' : val1,
+                    'secondvalue' : val2,
+                    'result' : eval(val1+optr+val2),
+                }
+                """
+            # you only write that code!
+            data={
+                'firstvalue' : val1,
+                'secondvalue' : val2,
+                'result' : eval(val1+optr+val2),
+            }
+    except:
+        data={
+            'firstvalue' : val1,
+            'secondvalue' : val2,
+            'result':"Something WRONG : Enter Correct Inputs!"
+        }
+    return render(request,'CALCULATOR.html',data);
 
 
 

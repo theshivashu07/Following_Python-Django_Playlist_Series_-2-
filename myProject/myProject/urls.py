@@ -31,6 +31,8 @@ urlpatterns = [
     
     path('submitform/',views.submitform, name="submitform"), 
     
+    path('calculator/',views.calculator, name="calculator"), 
+    
     path('admin/', admin.site.urls),
 ]
 
