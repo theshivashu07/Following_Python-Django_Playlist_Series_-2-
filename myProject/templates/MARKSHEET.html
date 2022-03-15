@@ -1,0 +1,105 @@
+
+
+
+
+{% extends 'SEPARATE.html' %}
+  {% block mycode %}
+
+
+
+
+
+    
+    <!-- MAIN -->
+    <main role="main">
+      <article>    
+
+        <!-- Section 3 -->
+        <section class="section background-dark">
+
+        <br><br><br><br>
+
+          <div class="s-12 m-12 l-4 center">
+            <h3 class="text-size-30 margin-bottom-40 text-center"><b>USER FORM</b></h3>
+            <form method="post" class="customform text-white" enctype="multipart/form-data">
+            {% csrf_token %}
+
+              <div class="line">
+                <div class="margin">
+                  <div class="s-12 m-12 l-12">
+                    <input class="name" placeholder="Enter Math Marks" name="firstmark" type="text" value="{{firstmark}}" required/>
+                  </div>
+                  <div class="s-12 m-12 l-6">
+                    <input class="name" placeholder="Enter Physics Marks" name="secondmark" type="text" value="{{secondmark}}" required/>
+                  </div>
+                  <div class="s-12 m-12 l-6">
+                    <input class="name" placeholder="Enter Chemistry Marks" name="thirdmark" type="text" value="{{thirdmark}}" required/>
+                  </div>
+                  <div class="s-12 m-12 l-6">
+                    <input class="name" placeholder="Enter Hindi Marks" name="fourthmark" type="text" value="{{fourthmark}}" required/>
+                  </div>
+                  <div class="s-12 m-12 l-6">
+                    <input class="name" placeholder="Enter English Marks" name="fifthmark" type="text" value="{{fifthmark}}" required/>
+                  </div>      
+
+                <div class="s-12"> 
+                  <button class="button border-radius text-white background-primary" type="submit" >Submit Values</button>
+                </div>
+
+                <center>
+                  <!--<b style="color: red;">{{result}}</b>-->
+                  <b><font color='red'>{{result}}</font></b>
+                </center>
+
+                <br>
+
+                  <div class="s-12 m-12 l-4">
+                    <label>Total</label>
+                    <input class="name" type="text" value="{{total}}">
+                  </div>
+                  <div class="s-12 m-12 l-4"
+                    <label>Persentage</label>
+                    <input class="name" type="text" value="{{persentage}}">
+                  </div>
+                  <div class="s-12 m-12 l-4">
+                    <label>Division</label>
+                    <input class="name" type="text" value="{{division}}">
+                  </div>      
+
+                </div>
+              </div>
+
+
+            <!--
+              <div class="line">       
+                <div class="s-12">
+                  <button class="button border-radius text-white background-primary" type="submit" >Submit Values</button>
+                </div>
+              </div>    
+            -->
+
+              <br>
+
+
+            </form>
+          </div>           
+        </section>
+
+      </article>
+    </main>
+    
+
+
+
+
+
+
+
+  {% endblock %}
+
+
+
+
+
+
+    

@@ -860,6 +860,18 @@ And we also make Prime Numbers logic, and for it also we make PRIME.html file, a
 ===================================================================================================
 
 
+32 - How to Create Simple Marksheet in Django
+
+To make marksheet we want to take 5 inputs, then we total these inputs, and on the bases of its make pursentage of its, and then on the bases of its we make division. Actually this is a python program, but we spending more practices on form, thats why we do implemet this logic by django and forms, so you see this impementation. 
+Actually you directly considered code, because its so easy, and explaination is tricky always, so you directly visite on the page directly. Here we only take a data and do operations with this data, and return a massage with student's persentage. Thatsit! 
+
+And here we also modifing some files code, not big modifing, its just class change, actually here we using email's class there, but we changing its by name's class. So only that change we do on some files, thatsit! 
+
+
+===================================================================================================
+
+
+
 
 
 

@@ -34,6 +34,7 @@ urlpatterns = [
     path('calculator/',views.calculator, name="calculator"), 
     path('evenodd/',views.evenodd, name="evenodd"), 
     path('prime/',views.prime, name="prime"), 
+    path('marksheet/',views.marksheet, name="marksheet"), 
 
     
     path('admin/', admin.site.urls),

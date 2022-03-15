@@ -148,6 +148,48 @@ def prime(request):
 
 
 
+def marksheet(request):
+    data={}
+    try:
+        if request.method=="POST":
+            # use eval, if int or float then okay, otherwise give error.
+            mark1=eval(request.POST["firstmark"]);
+            mark2=eval(request.POST["secondmark"]);
+            mark3=eval(request.POST["thirdmark"]);
+            mark4=eval(request.POST["fourthmark"]);
+            mark5=eval(request.POST["fifthmark"]);
+            total = mark1+mark2+mark3+mark4+mark5
+            persentage=(total*100)/500;
+            division= "First" if(persentage>=60) else ["Second" if(persentage>=48) else [ "Third" if(persentage>=33) else "Fail"]]
+            division= division if(division=="Fail") else division+" Division";
+            data={
+                'firstmark' : mark1, 
+                'secondmark' : mark2, 
+                'thirdmark' : mark3, 
+                'fourthmark' : mark4, 
+                'fifthmark' : mark5, 
+                'total' : total, 
+                'persentage' : persentage, 
+                'division' : division, 
+            }
+    except:
+        data={
+            'firstmark' : mark1, 
+            'secondmark' : mark2, 
+            'thirdmark' : mark3, 
+            'fourthmark' : mark4, 
+            'fifthmark' : mark5, 
+            'result':"Something WRONG : Enter Correct Inputs!", 
+        } 
+    print(data); 
+    return render(request,'MARKSHEET.html',data);
+
+
+
+
+
+
+
 
 
 
