@@ -797,13 +797,42 @@ And now you see that, there is show your text boxes. Yesss maybe they are not lo
 
 
 
+Now if we are commit 2.0, because here we discuss about if we want to pass any restriction related parameters on from's class's fields. So you see there, for our this html code we make like that in python:
 
+forms.py
+from django import forms
+class NameForm(forms.Form):
+    your_name = form.CharField(label="Your Name", max_length=100)
+HTML Code:
+<label for="your_name"> Your Name: </label>
+<input id="your_name" type="text" name="your_name" maxlength="100" required/>
 
+So we see much more thing about form here, Now we want to set width and label on the forms file's class's fields. So pass label on this, so that on this, so that this text show on you labels front or top depend on you other parameters. If we want to set this field as not required, or want to remove its validation, so we pass false there. And if we want to apply any class or change its type, so to do type change we use widget, and there say that we want TextInput, and on it we pass parameters, which means what changes you want to apply, so we pass bootstap's "form-control" class there, like code is: 
+firstvalue=forms.CharField(label="First Value", required=False, widget=forms.TextInput(attrs={'class':"form-control"}))
+secondvalue=forms.CharField(label="First Value", required=False, widget=forms.TextInput(attrs={'class':"form-control"}))
+And we also use EmailField there, if we want to use set validations, se we also do that, see this EmailField:
+email=forms.EmailField()
+So there is many fields there, if you want to check that, you visite on django personal fields related documentations, there is all details available.
+Visite a link : https://docs.djangoproject.com/en/4.0/ref/models/fields/
+
+> Model field reference: 
+    | Field options : null, blank, choices(Enumeration types), db_column, db_index, db_tablespace, default, editable, error_messages, help_text, primary_key, unique, unique_for_date, unique_for_month, unique_for_year, verbose_name, validators(Registering and Fetching lookups). 
+    | Field types : AutoField, BigAutoField, BigIntegerField, BinaryField, BooleanField, CharField, DateField, DateTimeField, DecimalField, DurationField, EmailField, FileField(FileField and FieldFile), FilePathField, FloatField, GenericIPAddressField, ImageField, IntegerField, JSONField, PositiveBigIntegerField, PositiveIntegerField, PositiveSmallIntegerField, SlugField, SmallAutoField, SmallIntegerField, TextField, TimeField, URLField, UUIDField. 
+    | Relationship fields: 
+        | ForeignKey : Database Representation and Arguments. 
+        | ManyToManyField : Database Representation and Arguments. 
+        | OneToOneField. 
+    | Field API reference. 
+
+> Field attribute reference: 
+    | Attributes for fields. 
+    | Attributes for fields with relations. 
 
 
 
 
 ===================================================================================================
+
 
 
 
