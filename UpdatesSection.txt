@@ -848,6 +848,22 @@ So we make this perfectly, Here is must to use try and except, because suppose u
 
 
 
+31 - Check Even-Odd and Prime Number Using Django Form
+
+Here we are making these programs so that you have set command on the get or post logic, and in future when you want to implement insersion deletion and updation logic so you do that properly, and there is not have any chance to do forget logics that how we implement?!?? 
+So now we will see that how to we check our number is ever or odd? So whole idea's code we see in this lecture. So first we make EVENODD.html file, and make url on urls.py file and also make function on views.py file. Actually its logic is very simple, not must to discribe more code. And we add its link under Products.
+
+And we also make Prime Numbers logic, and for it also we make PRIME.html file, and make url on urls.py file and also make function on views.py file. And this is the code extra, its not inncluded on lectures video, so remembered it always. And its linke also under Products. 
+
+
+
+===================================================================================================
+
+
+
+
+
+
 
 
 

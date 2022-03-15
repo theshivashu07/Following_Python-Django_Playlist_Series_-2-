@@ -1,0 +1,68 @@
+
+
+
+
+{% extends 'SEPARATE.html' %}
+  {% block mycode %}
+
+
+
+
+
+    
+    <!-- MAIN -->
+    <main role="main">
+      <article>    
+
+        <!-- Section 3 -->
+        <section class="section background-dark">
+
+        <br><br><br><br><br>
+
+          <div class="s-12 m-12 l-4 center">
+            <h3 class="text-size-30 margin-bottom-40 text-center"><b>USER FORM</b></h3>
+            <form method="post" class="customform text-white" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="line">
+                <div class="margin">
+                  <div class="s-12 m-12 l-12">
+                    <input class="required email" placeholder="Enter First Number" name="firstvalue" type="text" value="{{firstvalue}}" required/>
+                  </div>
+
+                </div>
+              </div>     
+              <div class="line">       
+                <div class="s-12">
+                  <button class="button border-radius text-white background-primary" type="submit" >Submit</button>
+                </div>
+              </div>    
+
+                <div class="s-12"> 
+                  <label>Result is</label>
+                  <textarea name="message" class="required message" rows="3">{{result}}</textarea> 
+                </div>
+
+                
+
+            </form>
+          </div>           
+        </section>
+
+      </article>
+    </main>
+    
+
+
+
+
+
+
+
+  {% endblock %}
+
+
+
+
+
+
+    

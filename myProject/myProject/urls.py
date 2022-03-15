@@ -32,6 +32,9 @@ urlpatterns = [
     path('submitform/',views.submitform, name="submitform"), 
     
     path('calculator/',views.calculator, name="calculator"), 
+    path('evenodd/',views.evenodd, name="evenodd"), 
+    path('prime/',views.prime, name="prime"), 
+
     
     path('admin/', admin.site.urls),
 ]

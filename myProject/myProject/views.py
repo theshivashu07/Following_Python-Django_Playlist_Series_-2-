@@ -71,6 +71,7 @@ def submitform(request):
     return render(request,'USERFORM.html');
 
 
+
 def calculator(request):
     data={}
     try:
@@ -78,23 +79,7 @@ def calculator(request):
             val1=request.POST["firstvalue"];
             val2=request.POST["secondvalue"];
             optr=request.POST["opr"];
-
-            """
-            # If you write required field on label tag, so there is must to pass anything there, then no need to write here so long code.
-            if(optr==""):
-                data={
-                    'firstvalue' : val1,
-                    'secondvalue' : val2,
-                    'result':"Something WRONG : Select Operator Also!"
-                    # 'result':"<b style='color: red;'>Select Operator Also!</b>"
-                }
-            else:
-                data={
-                    'firstvalue' : val1,
-                    'secondvalue' : val2,
-                    'result' : eval(val1+optr+val2),
-                }
-                """
+            #...............................................
             # you only write that code!
             data={
                 'firstvalue' : val1,
@@ -112,10 +97,56 @@ def calculator(request):
 
 
 
+def evenodd(request):
+    data={}
+    try:   
+        if request.method=="POST": 
+            # use eval, if int or float then okay, otherwise give error. 
+            value=eval(request.POST["firstvalue"]); 
+            result = "Number is Even" if(value%2==0) else "Number is Odd"; 
+            data={ 
+                'firstvalue' : value, 
+                'result' : result, 
+            } 
+    except: 
+        data={ 
+            'firstvalue' : value, 
+            'result':"Something WRONG : Enter Correct Inputs!" 
+        } 
+    return render(request,'EVENODD.html',data); 
 
 
 
 
+
+def prime(request):
+    data={}
+    try:
+        if request.method=="POST":
+            # use eval, if int or float then okay, otherwise give error.
+            value=eval(request.POST["firstvalue"]);
+            i=2
+            print(".....................................................")
+            while(i*i<=value):
+                if(value%i==0):
+                    result="Not Prime"
+                    break
+                i+=1;
+                print(".....................................................")
+
+            else:
+                result="Prime";
+            print(".....................................................")
+            data={
+                'firstvalue' : value,
+                'result' : result,
+            }
+    except:
+        data={
+            'firstvalue' : value,
+            'result':"Something WRONG : Enter Correct Inputs!"
+        }
+    return render(request,'PRIME.html',data);
 
 
 
