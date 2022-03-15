@@ -126,17 +126,13 @@ def prime(request):
             # use eval, if int or float then okay, otherwise give error.
             value=eval(request.POST["firstvalue"]);
             i=2
-            print(".....................................................")
             while(i*i<=value):
                 if(value%i==0):
                     result="Not Prime"
                     break
                 i+=1;
-                print(".....................................................")
-
             else:
                 result="Prime";
-            print(".....................................................")
             data={
                 'firstvalue' : value,
                 'result' : result,
