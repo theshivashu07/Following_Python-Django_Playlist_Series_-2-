@@ -36,6 +36,7 @@ urlpatterns = [
     path('prime/',views.prime, name="prime"), 
     path('marksheet/',views.marksheet, name="marksheet"), 
 
+    path('getalltabledata/',views.getalltabledata, name="getalltabledata"), 
     
     path('admin/', admin.site.urls),
 ]

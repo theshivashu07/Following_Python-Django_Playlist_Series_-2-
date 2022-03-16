@@ -1,5 +1,5 @@
 from django.contrib import admin
-from service.models import Service
+from service.models import Service,trialData
 # Register your models here.
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -14,6 +14,9 @@ class ServiceAdmin(admin.ModelAdmin):
 admin.site.register(Service,ServiceAdmin)
 """
 
+class trialDataAdmin(admin.ModelAdmin):
+	list_display=('head_data','class_name')
+admin.site.register(trialData,trialDataAdmin)
 
 
 

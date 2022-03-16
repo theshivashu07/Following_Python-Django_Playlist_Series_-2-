@@ -2,6 +2,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import userForm
+from service.models import trialData
 
 
 def index(request):
@@ -190,8 +191,20 @@ def marksheet(request):
 
 
 
+def getalltabledata(request):
+    gettingData=trialData.objects.all();
+    data={
+        'gettingData':gettingData,
+    }
+    return render(request,'GetAllTableData.html',data);
 
 
+
+'''
+class trialData(models.Model):
+    head_data=models.CharField(max_length=50)
+    class_name=models.TextField()
+'''
 
 
 

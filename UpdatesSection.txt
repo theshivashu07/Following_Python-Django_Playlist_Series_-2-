@@ -970,6 +970,41 @@ And yess there because to go admin section, we go on url and after rewrite we ac
 
 
 
+36 - How to Get All Table Data in Django | Objects All () 
+
+Now we will see that, if data is in table, then how to we show this data on html form. So means is simple, there is we see that how to we get all tables data in django. And then we know that how to we fatch data thrue of models. So lets see this data.  
+But i'm created new model here because in the last table we make according to lecture's way class, and now we not using this, so that we create another model, and applying this data into a another form. 
+So first i'm created model as 'trialData', and adding it on admin section, then do makemigrations and migrate, and then adding the data one by one. And yes i'm coping 'Our Services' page's all code into a another new 'GetAllTableData.html' file, and also make url and function for this. And on this file we do apply these operation.
+And we know that to get these data, we do code on our views.py file's function, so lets do some code to get this data, and then we do apply it on this html file using django's for loop. 
+
+models.py
+............................
+class trialData(models.Model):
+    head_data=models.CharField(max_length=50)
+    class_name=models.TextField()
+
+admin.py
+............................
+class trialDataAdmin(admin.ModelAdmin):
+    list_display=('head_data','class_name')
+admin.site.register(trialData,trialDataAdmin)
+
+GetAllTableData.html
+............................
+    {% for data in gettingData %}
+         ............................
+        <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-20"> {{data.head_data}}</h3>
+        ............................
+        <p class="{{data.class_name}}">Integre probatus accusata ne est</p>                    
+    ............................
+    {% endfor %}             
+............................
+
+
+
+
+===================================================================================================
+
 
 
 
