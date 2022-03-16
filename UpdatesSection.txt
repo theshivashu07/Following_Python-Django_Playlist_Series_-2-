@@ -906,6 +906,58 @@ def evenodd(request):
 
 
 
+34 - What is Model - Models in Your Django Application 
+
+Actually Model is a very important part of Django. Models are play a role as related to database, and as Module too. 
+So first we see this What is a model? When we see any website or suppose we consider Django, so there many sections like services, sliders, form's data save section, so means these types of many sections are there, and till now we are nothing to dynamic now, we plays now only statically. But we want this website dynamically, otherwise we not able to apply these dynamic logics. Because if client want to you a website, so there is we given admin pannel so that client add things, so there is must to we make our website totally dynamic. So to add opption on admin side we want to apply model's logic. 
+
+Like in a website we see that there is a sliders and in every slide we have links and many more things, so we see there that we needed these data as model schema, otherwise second option is we go on a code and do changes there, but this is the static type work. So to want make this website ad dynamic we use models. Model gives us the schema, because we make models using class, and under classes we set fields, who represented database table's colomn. In every model's under, we make fields, many fields are there who depending on data type. So whenever you create models, so there is we create schema set, because of many fields under its. And then we do makemigrations, then there is ready one migration or schema, and then under it we create table, after do migrate. So there is we use three commands, we discuss there three commands, we discuss it later when we implement.
+So not matter what we see in this lecture, we are do implement this daynamic logic in my way, according to my website's things, because 
+So we make models for these things representation which one we want to represent as dynamic, Because models representing to our tables, means tables are related to models or databases. And after create models we get the option of admin, and every tasks option presenting in the admin's front according to its uses, and then admin able to add data things directly. So there is model plays important role there.
+
+Now the case is how we do make this, so first things is: so first we make class as model or many models we make there, on which we set fields there according to needs, and after creating apps we add this under same project's name app's setting.py's INSTALLED_APP's section. And on these we also add primary or foregin key, we see this in future. So after creates model, we do apply three steps, first we do makemigrations so that there is created schema on migration file under app, and then we do migrate and then it is created as table.  
+|>> python manage.py makemigrations
+|>> python manage.py migrate
+So you want to know to do three things, first is make model, then convert it into migrations by makemigration command, and in the last we do migrate, and if you do that so on your admin we get this option, and then adding these data searching and deletion and updating and more operation's option's gives by model. 
+And to make models we use a command, and then our one app is created there. so to make service app we apply command is:
+|>> python manage.py startapp service 
+So lets make this service app there with this command, actually we manage all add, delete, edit all options managed by this command. 
+And on this folder there is automatically creates many files, we create models on models.py file, and what you want to show on your admin, you gives these informations on admin.py file. And more many files are there but we mainly use only these two files. 
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
