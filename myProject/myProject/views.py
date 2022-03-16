@@ -101,6 +101,9 @@ def evenodd(request):
     data={}
     try:   
         if request.method=="POST": 
+            if request.POST["firstvalue"]=="":
+                data={'error':True}
+                return render(request,'EVENODD.html',data); 
             # use eval, if int or float then okay, otherwise give error. 
             value=eval(request.POST["firstvalue"]); 
             result = "Number is Even" if(value%2==0) else "Number is Odd"; 

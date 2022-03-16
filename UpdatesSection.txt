@@ -872,6 +872,38 @@ And here we also modifing some files code, not big modifing, its just class chan
 
 
 
+33 - Manual Form Validation in Django
+
+Here Manual Form Validation means if we not set required field inder the tags, so on that situation if we not put any value and direct click on submit button so there is gives error beacuse we use eval() function, who says if you pass anything so which data i conver into int or float, so we want to set Manual Form Validation, so that we handle these invalid things in django. 
+
+So nothing special we do there, we apply this logic on EVENODD.html file, here we only check with if statement under views.py, we check that if this block have Nothing then immidiate return on this page with error massage, and in html page we use django if statement, and under it we use one div tag and use a class who show this massage specially in Red color box. So overall the means is we tackle this proble with if statements. 
+
+EVENODD.html
+.....................
+    <form method="post" class="customform text-white" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+              Please Enter The Value
+            </div>
+        {% endif %}
+        .....................
+.....................
+
+views.py
+def evenodd(request):
+    .....................
+        if request.method=="POST": 
+            if request.POST["firstvalue"]=="":
+                data={'error':True}
+                return render(request,'EVENODD.html',data); 
+            .....................
+        .....................
+
+
+
+===================================================================================================
+
 
 
 

@@ -23,10 +23,18 @@
             <h3 class="text-size-30 margin-bottom-40 text-center"><b>USER FORM</b></h3>
             <form method="post" class="customform text-white" enctype="multipart/form-data">
             {% csrf_token %}
+
+              <!-- Here our 'CSS' part is not working, because this in this projects class -->
+              {% if error %}
+              <div style="background-color: red;">
+                <center><b>Please Enter The Value</b></center>
+              </div>
+              {% endif %}
+
               <div class="line">
                 <div class="margin">
                   <div class="s-12 m-12 l-12">
-                    <input class="name" placeholder="Enter First Number" name="firstvalue" type="text" value="{{firstvalue}}" required/>
+                    <input class="name" placeholder="Enter First Number" name="firstvalue" type="text" value="{{firstvalue}}">
                   </div>
 
                 </div>
