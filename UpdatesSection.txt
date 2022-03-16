@@ -930,7 +930,43 @@ And on this folder there is automatically creates many files, we create models o
 
 
 
+35 - Creating a Model in Django
 
+Here we do implement all codes prectically. But one notice is there, i'm implementing things according to my project, because which template uses on video lecture its totaly different from my template, but yess in my template i'm implement this logic in another space. 
+
+So because i'm already create service app, so first thing is i'm deleting it and again put the command is:
+|>> python manage.py startapp service 
+And with it our app is created. Then on this new app we do code to create a class and se fields, like:
+models.py
+from django.db import models
+class Service(models.Model):
+    service_icon=models.CharField(max_length=50)
+    service_title=models.CharField(max_length=50)
+    service_des=models.TextField()
+
+And must is to you always know that what is our data inputs type, because according to this we select fields, and must is to set max length. And more many fields are there, you just chaeckout the official documentation or visite to the Lecture-29. 
+And after to make this code you think that you not make id there, because its must if i'm creating a table, so the reason is when we make migrations so there our id is automatically generated, and here it set auto increment by default. So if you make 2-3-4 filelds, so actually there is you make 3-4-5 fields in general. 
+Now second task is to you go on project's same name app, and go on its setting.py file and add this 'service' on INSTALLED_APP's list. Now our this app is connected with our settings. 
+Now the third task is you apply migration first, so that there is created schema on migration file under app. And you see after do this, there is show one file is created, and if you open this you see there is created n+1 fields. So thats the internal things. 
+|>> python manage.py makemigrations
+But now only model created, this not converted into tables, so now we do fourth thing is to apply migrate command. So all command is: 
+|>> python manage.py migrate
+So there is your service migration is applying successfully. If you want to see so open DBBrowser and see there our service_service name's table is created, and open it and see there is our all fields are as table form. Actually whenever you do makemigration so on your here's django_migrations table our this service table is added. 
+So we do everything on settings.py and models.py file, but is our this option is coming on admin section or not? So no this services option is not added there, its because there is must to do entry on your service app's admin.py file. And yess we talk about admin section means we are talking about after create superuser, visiting as admin. so code is like:
+admin.py
+from django.contrib import admin
+from service.models import Service
+class ServiceAdmin(admin.ModelAdmin):
+    list_display=('service_icon','service_title', 'service_des')
+admin.site.register(Service,ServiceAdmin)
+So now our this option will show on our admin section. Here whaterver fields we pass on our list_lisplay, only these fields will show on your admin section, or if you want to pass less fields under this, so this is also working perfectly. And also must is to use register option, so that all these fields will show on your admin section.  
+And this data is also added on your sqlite database. You just open DBBrowser and see there is our service_service name's table, there is our latest data added. So thats how our data is saved, and now we are able to use these data dynamically. 
+
+And yess there because to go admin section, we go on url and after rewrite we access admin section. Because there is noways to visite admin section, so I'm includeing this in our websites middle image section, Thatsit. 
+
+
+
+===================================================================================================
 
 
 
