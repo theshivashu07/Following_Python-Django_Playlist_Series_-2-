@@ -192,7 +192,9 @@ def marksheet(request):
 
 
 def getalltabledata(request):
-    gettingData=trialData.objects.all().order_by('-head_data');
+    gettingData=trialData.objects.all().order_by('id')[::-1][:3];
+    # gettingData=trialData.objects.all().order_by('-id')[:3];   # also do
+    # gettingData=reversed(trialData.objects.all().order_by('id'));   # not possible to do this.
     data={
         'gettingData':gettingData,
     }

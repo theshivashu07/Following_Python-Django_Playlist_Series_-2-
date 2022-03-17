@@ -1014,9 +1014,10 @@ But one more thing is must, which bases we implement ordered_by consept. Because
 def getalltabledata(request):
     gettingData=trialData.objects.all().order_by('id');
     ...................
-Actually to use orderby consept, we want to call this order_by() function, after the all() function. And under this we pass the field name. So we select 'id' there, but now here show all the fields sequentially, because id's are already set. But this is not works same, suppose you secent any character fields, where name is not arrenged a to z, then there is result not show sequentially, it show a-z format not matter your ID's are sequentially or not, we see this also in the last of this lecture. So okay! But if we wants decending we want to write '-' character before to write field name under 'order_by' function.
+Actually to use orderby consept, we want to call this order_by() function, after the all() function. And under this we pass the field name. So we select 'id' there, but now here show all the fields sequentially, because id's are already set. But this is not works same, suppose you secent any character fields, where name is not arrenged a to z, then there is result not show sequentially, it show a-z format not matter your ID's are sequentially or not, we see this also in the last of this lecture. So okay! But if we wants descending we want to write '-' character before to write field name under 'order_by' function.
 def getalltabledata(request):
-    gettingData=trialData.objects.all().order_by('id');
+    gettingData=trialData.objects.all().order_by('-id');
+    gettingData=reversed(trialData.objects.all().order_by('id')); 
     ...................
 
 Now we see that if we select any string related field, because there is its definatly not set in ascending or descending, because its not must that if our ID's in ascending then strings are also Ascending. I share base of my fields : 
@@ -1032,8 +1033,32 @@ So now if we want to do ascending 'head_data' field, so ID's are going to like: 
 
 
 
+===================================================================================================
+
+
+
+38 - Django - Limiting Query Results
+
+Now suppose we want to set limites on quary, Means like we get the 10 objects/rows, but we want to show only 2 or 4 services only.
+So how to we set limites on this query, see see there in this example. 
+
+So to do this we use slicing consept on our gettting value time, so that it takes only the data, in which to i needed. So means is simple we want to get the data but only first 3 data we wants, so the code is: 
+def getalltabledata(request):
+    gettingData=trialData.objects.all().order_by('id')[:3];
+    ...................
+Suppose we want to show middle data, like we have here only 4 data but suppose we have 10 data sets, so if you wants data 3-to-6, so you set there [2:6], because there is starts from 0 not from 1, and 6 is because never showing our last index, so to 3-to-6 we use [2:6].
+Or if you want last 3 data, so you slice in different ways, not by [-3:], because there is reverse slicing is not happens! So our code is:
+def getalltabledata(request):
+    gettingData=trialData.objects.all().order_by('id')[::-1][:3];
+    # gettingData=trialData.objects.all().order_by('-id')[:3];   # also do
+    # gettingData=reversed(trialData.objects.all().order_by('id'));   # not possible to do this.
+    ...................
+Or more many ways to do that, but must is to know that there is we never use reverse slicing. Thatsit! 
+
+
 
 ===================================================================================================
+
 
 
 
