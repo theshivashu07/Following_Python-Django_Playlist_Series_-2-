@@ -192,19 +192,13 @@ def marksheet(request):
 
 
 def getalltabledata(request):
-    gettingData=trialData.objects.all();
+    gettingData=trialData.objects.all().order_by('-head_data');
     data={
         'gettingData':gettingData,
     }
     return render(request,'GetAllTableData.html',data);
 
 
-
-'''
-class trialData(models.Model):
-    head_data=models.CharField(max_length=50)
-    class_name=models.TextField()
-'''
 
 
 

@@ -1007,6 +1007,35 @@ GetAllTableData.html
 
 
 
+37 - How to Order a Query Set in Ascending or Descending 
+
+We see in the last lecture that i'm geting inserted data in sequencially wise, now we see there if we want to see this data order wise, means how to we apply order_by consept. Suppose we want to show only Even ID's data or Odd ID's data or all ID's data who devided by 5 or 10 or so on. Or may be you want to shoe data set in ascending to descending order. So okay google, we show data set as descending order. So to this we just only change on our views.py file's function. 
+But one more thing is must, which bases we implement ordered_by consept. Because here is things normal, but if we are gonna big project management, then there is many things, which we handled, like only this year or month or week or days products show, only samsung's or apple's or one+ componey's products show, and explaination of its very long. So here overall means is, we always have any base case there, which's according we select data and sent to html page as response, for every request. And here base is ID. And according to the ID's we revert all data, and how? we see there...  
+def getalltabledata(request):
+    gettingData=trialData.objects.all().order_by('id');
+    ...................
+Actually to use orderby consept, we want to call this order_by() function, after the all() function. And under this we pass the field name. So we select 'id' there, but now here show all the fields sequentially, because id's are already set. But this is not works same, suppose you secent any character fields, where name is not arrenged a to z, then there is result not show sequentially, it show a-z format not matter your ID's are sequentially or not, we see this also in the last of this lecture. So okay! But if we wants decending we want to write '-' character before to write field name under 'order_by' function.
+def getalltabledata(request):
+    gettingData=trialData.objects.all().order_by('id');
+    ...................
+
+Now we see that if we select any string related field, because there is its definatly not set in ascending or descending, because its not must that if our ID's in ascending then strings are also Ascending. I share base of my fields : 
+trialData : {
+        ['id', 'head_data', 'class_name'],
+        ['1', D..... 'text-.....'],
+        ['2', 'Q.....', 'text-.....'],
+        ['3', 'I.....', 'text-.....'],
+        ['4', 'A.....', 'text-.....']
+    }
+
+So now if we want to do ascending 'head_data' field, so ID's are going to like: "trialData:[4,1,3,2]". And to do this as descending we add on this field '-' sign, like as '-head_data', then our ID's are going to like: "trialData:[2,3,1,4]". So thats why i said that not must that if our ID's in ascending then strings are also Ascending. So okay Google! Hehh!
+
+
+
+
+===================================================================================================
+
+
 
 
 
