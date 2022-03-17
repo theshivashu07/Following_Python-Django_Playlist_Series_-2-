@@ -1060,6 +1060,23 @@ Or more many ways to do that, but must is to know that there is we never use rev
 ===================================================================================================
 
 
+39 - Custom Template Filter in Django | Complete Implement & Logic
+
+Here we using Custom Template Filter, because such situation is coming where our data having tags, like : "Hey <b>Shivam Shukla</b>.", so actually here we want this name in bolt tag, but it not implementing there, so to implementing this we use 'safe' filter. So that then your all tag which is under data, it so implementing its actually works.
+..........................
+    {% for data in gettingData %}
+          <h3 ............. >{{data.head_data | safe}}</h3>
+            <p class="{{data.class_name}}"> ............. </p>  
+    {% endfor %}             
+..........................
+Similerly if you want to see your upcoming data in uppercase so write upper in 'safe's' place, or wantslowercase so write lower, or you also use two or more tags, but yess not use upper and lower in one line, because its not mean, but use like (safe and [upper or lower]).
+Or if you use 'first' so there is show only your string's first character only. There is also we check all string's word's count by 'wordcount' tag, we also check strings character lengths by 'length', and we also do slice our string by "slice'0:3'", means get only first 3 characters there. 
+So you check all fiter tags by yourself by visite to a its official documentations. Because there is many filters and developer using there by its needs, so you check these by yourself. 
+Link is : https://docs.djangoproject.com/en/4.0/howto/custom-template-tags/
+
+
+
+===================================================================================================
 
 
 
