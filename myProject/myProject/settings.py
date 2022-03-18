@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'service',
+    'tinymce',
+    'news',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +127,8 @@ STATICFILES_DIRS = [
 ] 
 
 
+# Must to add this, if you use 'tinymce' editor...
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField';
 
 
 

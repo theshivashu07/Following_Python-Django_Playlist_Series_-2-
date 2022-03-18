@@ -1080,6 +1080,55 @@ Link is : https://docs.djangoproject.com/en/4.0/howto/custom-template-tags/
 
 
 
+40 - Django TinyMCE Editor Integration with News App | A Rich Text Editor for Django
+
+Actually here we see how to we integrate TinyMCE Editor. Actually this editor's work is when you make any model or app so there we define fields name, like title discription and more, so we want to add editor in discription section, so that admin has editor where admin do some specific tasks like chage language stype, do bolt itelic or many more task with it. So to doing this we want to install a python's package in our system, ander after installing this we able to use this editor in our project. So lets we inplement whole thing in prectical. So first task is to we install 'tinymce' package:
+|>> pip install django-tinymce 
+Then you go under same name's app, and on settings.py file's INSTALLED_APPS section, and add there 'tinymca'. And then we do use this editor on our project. 
+
+Now we want to use this 'tinymce' editor in another app, its name is 'news'. So first we make app, so command is:
+|>> python manage.py startapp news 
+So there is 'news' app is creates. Now we go on its models.py file, and make a class for its management. And we make there two fields, first is title, and second is discription, where we implementing this editor, but first import somethings in models.py, so code is...
+models.py
+from django.db import models
+from tinymce.models import HTMLField
+class News(models.Model):
+    news_title = models.CharField(max_length=100);
+    news_desc = HTMLField(); 
+And then we add this app under same name's app's settings.py file's INSTALLED_APPS section.
+settings.py
+.................
+INSTALLED_APPS = [
+        ................., 
+        'service',
+        'tinymce',
+        'news',
+]
+Then we go 'news' app's admin.py file, and there we mention this, so that in our superuser's admin side show this news app, so code is: 
+admin.py
+from django.contrib import admin
+from news.models import News
+class NewsAdmin(admin.ModelAdmin):
+    list_display=(news_title,news_desc);
+admin.site.register(News,NewsAdmin);
+Then after this we do two things, first makemigrations and then migrate. So now code is:
+|>> python manage.py makemigrations
+|>> python manage.py migrate 
+So now our all works is done! Now we go on admin section, and there adding the data, but you see there your aditor is already there, means we are adding the data according to our situation, means if we want to data as bold, itelic, size change or anythings we want to designing with this data, we able to this with editor. So here we able to do use editor in this admin sides, and we also able to use this editor in django form, means if we want to use this editor in front end side, so thet user also use this and then save data, so you also able to do implement that. 
+
+
+But one this is there must to implement, means you add this below line on you same name's app's setting.py file: 
+# Must to add this, if you use 'tinymce' editor...
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField';
+I really dont know why needed this to add on my setting.py file, but maybe its because we use another resources on our project, so maybe this internal implementation is the reason. By the way, this problem's solution is not by lecture, infact there is not coming this error, so only in my leptop come this error, and i search this solution by google's 'stackoverflow'. Okay google, Thatsit! 
+
+
+
+===================================================================================================
+
+
+
+
 
 
 
