@@ -1241,7 +1241,20 @@ So there is we see how working with dynamic data, with dynamic urls, and with dy
 ===================================================================================================
 
 
+43 - How to Reset Django Admin Password? - Easy Steps 
 
+Listen to reset password we use the forget passwords logic in future, but if we working on local, and we want to reset the password, so how to we reset the password. Now if we know user name then okey, otherwise we go on DB Browser and there open you project's sqlite database file, and under this file there is a option to check all user's and password related informations on "auth_user" section, so there is your user name also show's on the all users list, but because Django incripts password as 'Hash Code' format. So in this situation we get username, and because now we know username, So to reset password the command is:
+|>> python manage.py changepassword vashu07
+Here if you write wrong then it show that, your username is not exist. But if username is exist then asks you new password, and after entered it this new password is your actual password. 
+So I'm changing my ID and password is"
+ID : vashu07
+Pass : vashu12345
+By the way in the next lecture I'm again retake my last lecture's project's database, so that our ID and password is come back again.
+So okay google, thatsit the lecture!
+
+
+
+===================================================================================================
 
 
 
