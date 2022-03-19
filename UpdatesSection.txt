@@ -1305,6 +1305,29 @@ So now your data search is applying with only one character also, and by one wor
 
 
 
+[ Commit : "Lecture 44 2.0" ]
+Now we want that, if we search, but there is no data matches, then there is must to show "No Data Match Found" massage. So we able to do that in python using if's else consept, but here we are working on Django's template, so there syntex is little change. 
+So here we replacing 'else' by 'empty', so that if data is not coming there then your else part's massage will show. 
+GetAllTableData.html
+........................
+    ........................
+        {% for data in gettingData %}
+            ........................
+              <h3 class=".......">| {{data.head_data | safe}}</h3>
+                ........................
+                <p class="{{data.class_name}}">Integre probatus accusata ne est</p>                    
+                ........................
+            ........................
+          {% empty %}   
+          <center>
+            <b style="color: red;">No Data Found!</b>
+          </center>
+        {% endfor %}     
+    ........................        
+.................   
+
+
+
 ===================================================================================================
 
 
