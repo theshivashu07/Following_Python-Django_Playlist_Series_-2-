@@ -204,9 +204,12 @@ def marksheet(request):
 
 
 def getalltabledata(request):
-    gettingData=trialData.objects.all().order_by('id')[::-1][:3];
-    # gettingData=trialData.objects.all().order_by('-id')[:3];   # also do
-    # gettingData=reversed(trialData.objects.all().order_by('id'));   # not possible to do this.
+    gettingData=trialData.objects.all();
+    if request.method=="GET":
+        value=request.GET.get('servicename');
+        if value!=None:
+            gettingData=trialData.objects.filter(head_data=value);
+            # select *from tablename where tablename title='head_data'
     data={
         'gettingData':gettingData,
     }

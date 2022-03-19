@@ -1257,6 +1257,42 @@ So okay google, thatsit the lecture!
 ===================================================================================================
 
 
+44 - How does Filter Work in Django | Django Filter
+
+Now we see that if we want to filter any data then what we will do in Django.
+Actually we already see that if we want to all data then we use ".....objects.all()", and if we want to any single data then we use ".....objects.get()". But we are use ".....objects.filter()", when we wants data in the bases of searchings. So lets see this prectical implementataions that how we are set logics.
+
+Now there we using 'getalltabledata' url, functiom and html page, because we know there is coming 4 data. And we adding one search box there, in which we are writing title name and then there is show only perticuler dataset. So first we make a search box,
+GetAllTableData.html
+..................
+       <form method="get">
+         ..................
+         <input type="text" name="servicename", value="" style="height: 30px; width: 200px;" />
+         <input type="submit" value="Search" />
+         ..................
+       </form>
+..................
+
+And then we rewrite the 'getalltabledata' function's code. So now code is:
+def getalltabledata(request):
+    gettingData=trialData.objects.all();
+    # gettingData=trialData.objects.all().order_by('id');
+    if request.method=="GET":
+        value=request.GET.get('servicename');
+        if value!=None:
+            gettingData=trialData.objects.filter(head_data=value);
+            # select *from tablename where tablename title='head_data'
+    data={
+        'gettingData':gettingData,
+    }
+    return render(request,'GetAllTableData.html',data);
+So with this if we search same title names, then data will show there. 
+
+
+
+===================================================================================================
+
+
 
 
 
