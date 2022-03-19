@@ -10,13 +10,13 @@
       <header class="section-top-padding background-image text-center" style="background-image:url(/static/image/img-05.jpg)">
         <br>
 
-        <marquee>
+        <marquee onmouseover="stop()" onmouseout="start()">
           {% for news in newsData %}
-            <a href="">
-              {{news.news_title}}  &nbsp &nbsp &nbsp
-            </a>
+            <a href="/newsdetails/{{news.id}}">
+              {{news.news_title}}  
+            </a>  &nbsp &nbsp &nbsp
           {% endfor %}
-        </marquee>
+        </marquee> 
         <!--
         <marquee>
           {% for news in newsData %}

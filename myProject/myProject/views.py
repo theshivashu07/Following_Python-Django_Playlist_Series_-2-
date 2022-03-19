@@ -13,6 +13,13 @@ def index(request):
     }
     return render(request,'index.html',data);
 
+def newsdetails(request,newsid):
+    newsDetails=News.objects.get(id=newsid);
+    data={
+        'newsdetails' : newsDetails,
+    }
+    return render(request,'newsdetails.html',data); 
+
 def aboutus(request):
     return render(request,'about-us.html');
 

@@ -1,0 +1,58 @@
+
+
+
+
+{% extends 'SEPARATE.html' %}
+  {% block mycode %}
+
+
+
+
+
+    
+    <!-- MAIN -->
+    <main role="main">
+      <article>    
+        <!-- Header -->
+        <header class="section background-image text-center" style="background-image:url(/static/image/img-05.jpg)">
+          <h1 class="animated-element slow text-extra-thin text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-30 margin-top-130">
+            <b>Latest NEWS</b>
+          </h1>
+          <!-- white full width arrow object -->
+          <img class="arrow-object" src="/static/image/arrow-object-white.svg" alt="">
+        </header>
+        
+        <!-- Section 1 -->
+        <section class="section background-white">
+          <div class="line">
+            <div class="margin2x">   
+              <div class="m-12 l-12">
+
+                  <h3 class="animated-element text-strong text-size-20 text-line-height-1 margin-bottom-20">
+                    {{ newsdetails.news_title }}
+                  </h3>
+                  <p class="animated-element slow margin-bottom-30"> 
+                    {{ newsdetails.news_desc  |  safe }}
+                  </p>
+
+              </div>
+            </div>    
+          </div>  
+        </section>    
+      </article>
+    </main>
+
+
+
+
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+

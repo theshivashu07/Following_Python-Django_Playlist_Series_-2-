@@ -1188,9 +1188,57 @@ So now things are going perfectly. Now how to we click on it so it's going on ne
 
 
 
+42 - Display News in Detail Page with Dynamic URL
+
+Now we see how to we display news in details page, after clicking on its link. There all things display properly as actual NEWS. And here we use "....objects.get()" function in the places of ".....objects.all()". Get always comes with takes a single row, and on there we want to pass condition, now how to things actually happens, we will see in this lecture. So lets see there that how to you make dynamic url with dynamic data. 
+But first we use javascript's two events on marquee tag, "on mouse over and out", with these helps if we pointing cursur on marquee tag's news's, so these marquee's content stopping immidiatly, so that we clicking on right NEWS's link. 
+index.html
+....................
+    <marquee onmouseover="stop()" onmouseout="start()">
+      ....................
+    </marquee>
+....................
+
+And then we make one html page, url and function to represent 'newsdetails', and there we use one extra parameter 'id', who play a very important role in this workings. And for 'newsdetails' html page, we coping about us page's code and do apply there...
+
+urls.py
+................
+urlpatterns = [
+    ................
+    path('newsdetails/<newsid>',views.newsdetails, name="newsdetails"), 
+    ................
+]
+
+views.py
+def newsdetails(request,newsid):
+    newsDetails=News.objects.get(id=newsid);
+    data={
+        'newsdetails' : newsDetails,
+    }
+    return render(request,'newsdetails.html',data); 
+
+Actually we use all() when there is a chances to coming multiple rows, like if we search tha 'shivam' names all user, so there is a chance to coming multiple users. But if you search unique data, who anotherone user not have, so there is we coming only one single data, and thats why we use get() here. And we don't use loops in this html file, because we know only one row is coming there. So code is... 
+
+newsdetails.html
+................
+    ................
+        <h3 class=".......">
+          {{ newsdetails.news_title }}
+        </h3>
+        <p class="......."> 
+          {{ newsdetails.news_desc  |  safe }}
+        </p>
+    ................
+................
+
+So there is we using routes or url on the every news, so that there is open links,
+Here in the every news's title we pass routes or url's links, here we only pass id on url. In the next lectures we use slugs logic, slugs is nothing, only title's data is there and between every words '-' sign is atteched there, and how to we manage this we see in the next lecture. 
+So there is we see how working with dynamic data, with dynamic urls, and with dynamic details page. So okkay google thatsit! 
 
 
 
+
+===================================================================================================
 
 
 
