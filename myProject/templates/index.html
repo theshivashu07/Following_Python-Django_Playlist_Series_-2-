@@ -8,6 +8,27 @@
     <main role="main">    
       <!-- Header -->
       <header class="section-top-padding background-image text-center" style="background-image:url(/static/image/img-05.jpg)">
+        <br>
+
+        <marquee>
+          {% for news in newsData %}
+            <a href="">
+              {{news.news_title}}  &nbsp &nbsp &nbsp
+            </a>
+          {% endfor %}
+        </marquee>
+        <!--
+        <marquee>
+          {% for news in newsData %}
+            <a href="">
+          <b style="color: darkred;">
+              {{news.news_title}}  &nbsp &nbsp &nbsp
+        </b>
+            </a>
+          {% endfor %}
+        </marquee>
+      -->
+
         <h1 class="text-extra-thin text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-40 margin-top-130">
           Save your Time and Keep Calm
         </h1>

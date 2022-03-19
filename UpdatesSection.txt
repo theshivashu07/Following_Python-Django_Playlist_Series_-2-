@@ -1128,8 +1128,63 @@ I really dont know why needed this to add on my setting.py file, but maybe its b
 
 
 
+41 - Marquee Tag for Display News in Django
+
+Here we see that how we display news in marquee tag, so that our news will displayed as in sliding ways, lerft to right or right to left.
+So now we are adding some data on our news, and then displaying this. So we want to displat our news's title under marque tag. 
+So we are going on google, and find the contant, so that we save this dummy contant, and then we use this contant. 
+And we using a marquee tag, and to check that how its work, we implement this idea, first in front page means an index.html file...
+index.html
+....................
+    <marquee>
+      <h3 style="color: darkred;"><b>The breaking news is just coming's...!!</b></h3>
+    </marquee>
+....................
+Now you go on same name's app's views.py, and then first import your news app there, then we do code there, so that whenever we coming on our website so that there is show all news's showing continuesly using for loop and saperated by '&nbsp' tag there, actually '&nbsp' gives us the space. 
+views.py
+def index(request):
+    newsData=News.objects.all()[1:];
+    data={
+        'newsData' : newsData,
+    }
+    return render(request,'index.html',data);
+Here html code is fully ready, but we want to use 'a' tag with every news, because if we want to click on it to see full news, then we go on a link for this news's discription. 
+
+Actually if we use 'a' tag there, so here fonts color is change automatically, because it changing color in blue, so to changing this we also use style, but you also use stylings by css file, so here we make 'main.css' file, and atteched this in header.html. So now code is: 
+main.css 
+marquee{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    margin-bottom: 40px;
+    margin-top: 27px;
+    color: white;
+    z-index: 999;
+    line-height: 50px;
+    background-color: white;
+}
+marquee a{
+    color: red;
+    font-weight: bolt;
+}
+
+index.html
+....................
+    <marquee>
+      {% for news in newsData %}
+        <a href="">
+          {{news.news_title}}  &nbsp &nbsp &nbsp
+        </a>
+      {% endfor %}
+    </marquee>
+....................
+
+So now things are going perfectly. Now how to we click on it so it's going on news's details page, these things we discuss later. In the next lecture we will see that how to we provide link to every news. So thats it NOW! 
 
 
+
+
+===================================================================================================
 
 
 
