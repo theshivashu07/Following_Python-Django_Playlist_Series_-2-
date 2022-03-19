@@ -1290,6 +1290,21 @@ So with this if we search same title names, then data will show there.
 
 
 
+[ Commit : "Lecture 44 2.0" ]
+But now we want that if we searching only one word then all data who have that word, all datasets are showing below there. So here we implement the "like's" logic. Actually, we only add add '__icontains' word in suffix of filter's key, key is a name of you mention on model fields. 
+def getalltabledata(request):
+    .................
+        if value!=None:
+            .................
+            gettingData=trialData.objects.filter(head_data__icontains=value);
+            # // with it we search word in both side, below syntax is not as it is!
+            # select *from service where service title likes '% worddata %'
+    .................
+    return render(request,'GetAllTableData.html',data);
+So now your data search is applying with only one character also, and by one word and whole exect strings also. So now all things working perfectly, we there is searching performed by your searching strings bases!
+
+
+
 ===================================================================================================
 
 

@@ -208,8 +208,12 @@ def getalltabledata(request):
     if request.method=="GET":
         value=request.GET.get('servicename');
         if value!=None:
-            gettingData=trialData.objects.filter(head_data=value);
+            # gettingData=trialData.objects.filter(head_data=value);
             # select *from tablename where tablename title='head_data'
+            # ------------------------------------
+            gettingData=trialData.objects.filter(head_data__icontains=value);
+            # // with it we search word in both side, below syntax is not as it is!
+            # select *from service where service title likes '% worddata %'
     data={
         'gettingData':gettingData,
     }
