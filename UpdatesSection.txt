@@ -1432,6 +1432,86 @@ In the next lecture se see that how to we target pagination's last page.
 ===================================================================================================
 
 
+47 - Last Page Pagination & Number Counter Logic in Django
+
+So to go last page, first we go on views.py file's function, and there first we find our last page, and passing this as 'key-value' pair...
+And we also apply this on our 1, 2, 3, 4 page's. Means we are able to set these, because currntly we are adding all these numbers by our selfs, but we want to add logics, here is we find that how many pages are there and using for loops and according to this, which number of pages there only that numbers showing there. So here we alredy know that how many pages, so we use list comprihence and generate a list there, and passing on html page, so that we are using for loop in out side. And with this logics we iterate only set of times. So overall fuction is,
+views.py
+def pagination(request):
+    gettingData=trialData.objects.all();
+    paginator=Paginator(gettingData,2)
+    pageNo=request.GET.get('page');
+    gettingDataFinal=paginator.get_page(pageNo)
+    lastpageNo=gettingDataFinal.paginator.num_pages
+    data={
+        'gettingData':gettingDataFinal,
+        'lastpageNo':lastpageNo,
+        'mylist':[ i+1 for i in range(lastpageNo)],
+    }
+    return render(request,'PAGINATION.html',data);
+
+PAGINATION.html 
+...............................
+  ...............................
+    <div class="container">
+        ...............................
+          {% if gettingData.has_previous %}
+            ...............................
+              <a class="page-link" href="/pagination/?page=1">First</a>
+            ...............................
+              <a class="page-link" href="/pagination/?page={{gettingData.previous_page_number}}">
+            ...............................
+          {% endif %}
+    
+          {% for i in mylist %}
+            <li class="page-item">
+              <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+            </li>
+          {% endfor %}
+    
+          <!-- actually we use this if statement, so that this showing only then, when we are not in the last page -->
+          {% if gettingData.has_next %}
+              ...............................
+              <a class="page-link" href="/pagination/?page={{gettingData.next_page_number}}" aria-label="Next">
+              ...............................
+              <a class="page-link" href="/pagination/?page={{lastpageNo}}">Last</a>
+              ...............................
+          {% endif %}
+        ...............................
+    </div>
+  ...............................
+...............................
+
+So now overall our Pagination is working perfectly, here our all First, Previous, 1, 2, 3, 4, Next and Last page working perfectly. And also there is all 1, 2, 3 and 4 shows according to your data sets, so there is actually 4 sets coming from 2's combinations. Thatsit!
+
+
+
+===================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
