@@ -228,10 +228,12 @@ def pagination(request):
     pageNo=request.GET.get('page');
     gettingDataFinal=paginator.get_page(pageNo)
     lastpageNo=gettingDataFinal.paginator.num_pages
+    print(pageNo,type(pageNo))
     data={
         'gettingData':gettingDataFinal,
         'lastpageNo':lastpageNo,
         'mylist':[ i+1 for i in range(lastpageNo)],
+        'pageNo':pageNo,
     }
     return render(request,'PAGINATION.html',data);
 

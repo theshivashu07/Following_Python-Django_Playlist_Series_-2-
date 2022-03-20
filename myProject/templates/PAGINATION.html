@@ -62,7 +62,8 @@
           </div>       
         </section>
       </article>
-      
+
+
 
 
 <div class="container">
@@ -85,9 +86,15 @@
 
 
     {% for i in mylist %}
+      {% if i is gettingData.number %}
+        <li class="page-item active">
+            <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+        </li>
+      {% else %} 
         <li class="page-item">
             <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
         </li>
+      {% endif %}
     {% endfor %}
 
       <!--
@@ -106,6 +113,9 @@
           <a class="page-link" href="/pagination/?page=5">5</a>
       </li>
     -->
+
+
+
 
       <!-- actually we use this if statement, so that this showing only then, when we are not in the last page -->
       {% if gettingData.has_next %}

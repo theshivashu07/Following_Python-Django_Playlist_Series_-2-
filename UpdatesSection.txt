@@ -1485,13 +1485,13 @@ PAGINATION.html
 So now overall our Pagination is working perfectly, here our all First, Previous, 1, 2, 3, 4, Next and Last page working perfectly. And also there is all 1, 2, 3 and 4 shows according to your data sets, so there is actually 4 sets coming from 2's combinations. Thatsit!
 
 
+[ Commit 2.0 ]
+But here is one things we must to implement, and that is active page show, and this is must because otherwise its not showing perfectly.
+And finally we know that what is the key name, whos shows current page... You see in a code, what is exectly the code is. So, okay google, thatsit there!
+
+
 
 ===================================================================================================
-
-
-
-
-
 
 
 
