@@ -1395,10 +1395,41 @@ And now you see there is url is called according to a slugs bases. So in this wa
 ===================================================================================================
 
 
+46 - How To Add Pagination In Django Project? |
+
+In this lecture we see that how we are apply Pagination(PG Need or Pagenet) option. Actually Pagination means like you have many records maybe 20, 50, 100 or else, but you dont want to show all records directly, at a time you want to show only two or three records, and then there we gives a option like 'show more', 'next' or 'previous', and then we manage all records, and this concept is called like Pagination. And in pagination here is a logic of 'next-previous' and '1' '2' '3' or so on. So there we see all the logics briefly. 
+
+So for apply pagination here is must to we import django's one library there, remember that there is we not installing any package, we just importing package only.
+And here we are working on new html file, url and function, and consider name as PAGINATOR.html, but we copying the GetAllTableData.html file code. And do some changes. And we also do change on my HEADER.html file because we adding this Pagination link on 'Products' section's below. 
+Now we continue our main things, that is, there 4 records showings, but we want that only initial 2 records show there, and the show option next, and in this way things are happens. So there in the same name app's views.py function we do some changes,
+.....................
+from django.core.paginator import Paginator
+.....................
+def pagination(request):
+    gettingData=trialData.objects.all();
+    paginator=Paginator(gettingData,2)
+    pageNo=request.GET.get('page');
+    gettingDataFinal=paginator.get_page(pageNo)
+    data={
+        'gettingData':gettingDataFinal,
+    }
+    return render(request,'PAGINATION.html',data);
+
+Actually here first we call imported Paginator() function, and there is pass two things, first is whole data, and second is which data we want to show, so there is 2 limit. And then we wants to get page number, because according to this we displaying data, and yes by default it considered page number 1. And then we pass this data by dictionary.
+
+So till now there is only two data's it get, and its all depend on our pageno., and this is the task of function's side. Now task is what is we do on template, so there we implementing the paginations code by google. Here i'm making same name's two files with 'paginatorbootstrap' name, first is a html and second is a css file. And then we add many bootstrap's links on our HEADER.html file, because there is we implementing Paginator concepts. And we also implement this code on PAGINATION.html file's after datasets. So there is done the code to implement paginator. 
+Now the task is to how we implementing the idea? so that there is things are working perfectly, and these 1, 2, 3 and so on buttons working correctly? So actually we are moving on our above views.py file's function, here we take gettingDataFinal variable, actually this variable have many more keys and values pairs under this, and these are related to paginations. Like previous, next, total and many more page number is there on keys and values format. 
+
+So here we do code changes one-by-one there, you just go on PAGINATION.html file and see all those changes.
+Actually now my data set is only 4, so i want to incress this, so i'm again pushing same data, by little change on title. So now our pages are 4. Actually here we implementing if-else, because we want if we already in first or last page then First and Previous or Next page not show. 
+
+But I'm confessing that there is many things which i want to handle, like which css i'm applying in my project for pagination, that css managing by classes active and deactive sections, so there is such things who not in my ways.
+So there is we see that how we provide links to First, Previous, 1, 2, 3, 4 and Next page. 
+In the next lecture se see that how to we target pagination's last page.
 
 
 
-
+===================================================================================================
 
 
 

@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from .forms import userForm
 from service.models import Service,trialData
 from news.models import News
-
+from django.core.paginator import Paginator
 
 def index(request):
     newsData=News.objects.all()[1:];
@@ -220,6 +220,17 @@ def getalltabledata(request):
     return render(request,'GetAllTableData.html',data);
 
 
+
+
+def pagination(request):
+    gettingData=trialData.objects.all();
+    paginator=Paginator(gettingData,2)
+    pageNo=request.GET.get('page');
+    gettingDataFinal=paginator.get_page(pageNo)
+    data={
+        'gettingData':gettingDataFinal,
+    }
+    return render(request,'PAGINATION.html',data);
 
 
 

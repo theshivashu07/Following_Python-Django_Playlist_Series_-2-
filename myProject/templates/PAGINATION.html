@@ -1,0 +1,188 @@
+
+
+
+
+
+
+{% extends 'SEPARATE.html' %}
+  {% block mycode %}
+
+
+
+
+
+
+    <!-- MAIN -->
+    <main role="main">
+      <article>    
+        <!-- Header -->
+        <header class="section background-image text-center" style="background-image:url(/static/image/carousel-02.jpg)">
+          <h1 class="animated-element slow text-extra-thin text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-30 margin-top-130">
+            Get All Table's Data
+          </h1>
+          <p class="animated-element text-white">Duis autem vel eum iriure dolor in hendrerit in</p>
+          
+          <!-- white full width arrow object -->
+          <img class="arrow-object" src="/static/image/arrow-object-white.svg" alt="">
+        </header>
+
+
+
+
+        <!-- Section 1 -->
+        <section class="section background-white">      
+          <div class="line">
+            <div class="margin2x">
+
+
+            {% for data in gettingData %}
+              <div class="m-12 l-6 margin-bottom-60">
+                <div class="float-left">
+                  <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-20">| {{data.head_data | safe}}</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, an eam legere quidam. Ius at melius efficiantur, vide dicam adolescens cum ea, his et quem graeci malorum. 
+                    No dico cetero definiebas has, consul reformidans ea sea, nec et lorem minimum. Eam aeque pertinacia id, cum ad summo minimum nominavi.
+                    
+                    <p class="{{data.class_name}}">Integre probatus accusata ne est</p>                    
+                     
+                    Detraxit deseruisse voluptatibus ea mei, deseruisse efficiendi omittantur ei mel. Te mutat mnesarchum moderatius quo.
+                    Ut labore laboramus has, eu eius malis assueverit eos. Integre probatus accusata ne est, id fuisset detracto sit, vix ad sensibus mandamus. 
+                    Eu vim quot habemus lucilius, ius eu placerat apeirian. Quo erat dolore ornatus ut, an commodo repudiare honestatis nec.
+                  </p>                                                      
+                </div>
+              </div>           
+
+              {% empty %}   
+              <center>
+                <b style="color: red;">No Data Found!</b>
+              </center>
+            {% endfor %}             
+
+            </div>
+          </div>       
+        </section>
+      </article>
+      
+
+
+
+<div class="container">
+
+  <!--Pagination 2-->
+<nav class="Pager2" aria-label="pagination example">
+    <ul class="pagination justify-content-center">
+
+        <!--Arrow left-->
+      {% if gettingData.has_previous %}
+        <li class="page-item active">
+            <a class="page-link" href="/pagination/?page=1">First</a>
+        </li>
+        <li class="page-item disabled">
+            <a class="page-link" href="/pagination/?page={{gettingData.previous_page_number}}">
+                <<
+            </a>
+        </li>
+      {% endif %}
+        <li class="page-item active">
+            <a class="page-link" href="/pagination/?page=1">1 </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="/pagination/?page=2">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="/pagination/?page=3">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="/pagination/?page=4">4</a>
+      </li>
+
+      <!--
+        <li class="page-item">
+          <a class="page-link" href="/pagination/?page=5">5</a>
+      </li>
+    -->
+
+      <!-- actually we use this if statement, so that this showing only then, when we are not in the last page -->
+      {% if gettingData.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="/pagination/?page={{gettingData.next_page_number}}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+      {% endif %}
+
+
+    </ul>
+</nav>
+
+</div>
+  
+
+
+
+
+
+
+
+
+      <!-- Section 2 -->
+      <section class="section background-dark">
+        <div class="line text-center">
+          <i class="icon-sli-heart text-primary text-size-40"></i>
+          <h2 class="text-size-50 text-m-size-40"><b>Satisfied</b> Clients</h2>
+          <hr class="break background-primary break-small break-center margin-bottom-50">
+        </div>
+        <div class="line">    
+          <div class="carousel-default owl-carousel carousel-wide-arrows">
+            <div class="item">
+              <div class="s-12 m-12 l-7 center text-center">
+                <div class="text-primary margin-bottom"><i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i></div>
+                <p class="margin-bottom">Iriure duis autem vel eum dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis  lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                <p class="text-primary text-size-16"><strong>Scott Star</strong> / CEO / Company</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="s-12 m-12 l-7 center text-center">
+                <div class="text-primary margin-bottom"><i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i></div>
+                <p class="margin-bottom">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, lobortis nisl ut aliquip ex ea commodo consequat vel illum dolore eu feugiat nulla facilisis.</p>
+                <p class="text-primary text-size-16"><strong>Mark Stoner</strong> / Web Developer / Company</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="s-12 m-12 l-7 center text-center">
+                <div class="text-primary margin-bottom"><i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i> <i class="icon-star text-size-12"></i></div>
+                <p class="margin-bottom">Vulputate velit duis autem vel eum iriure dolor in hendrerit in vulputate lobortis nisl ut aliquip ex ea commodo consequat velit esse molestie consequat, vel illum dolore eu feugiat nulla.</p>
+                <p class="text-primary text-size-16"><strong>Jane Naismith</strong> / Web Designer / Company</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="section-small-padding background-white text-center">
+        <div class="line">
+          <div class="s-12 m-12 l-9 center margin-bottom-30">
+            <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-10">Prompta reform conceptam</h3>
+            <p>Deleniti pertinacia eu est, te his soluta quaestio pericula illum facilisis.</p>
+          </div>
+        </div>            
+        <div class="line">  
+          <div class="s-12 m-12 l-3 center">
+            <a href="contact.html" class="s-12 button border-radius background-primary text-size-20 text-white">Contact Us</a>
+          </div>
+        </div>
+      </section>        
+    </main>
+    
+
+
+    
+
+  {% endblock %}
+
+
+
+
+

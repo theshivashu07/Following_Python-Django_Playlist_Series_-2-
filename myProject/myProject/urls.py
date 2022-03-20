@@ -39,6 +39,7 @@ urlpatterns = [
     path('marksheet/',views.marksheet, name="marksheet"), 
 
     path('getalltabledata/',views.getalltabledata, name="getalltabledata"), 
+    path('pagination/',views.pagination, name="pagination"), 
     
     path('admin/', admin.site.urls),
 ]
