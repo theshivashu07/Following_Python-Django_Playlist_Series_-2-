@@ -21,7 +21,7 @@ from myProject import views
 urlpatterns = [
     path('',views.index,name=""),
     path('index/',views.index, name="index"),
-    path('newsdetails/<newsid>',views.newsdetails, name="newsdetails"), 
+    path('newsdetails/<newsslug>',views.newsdetails, name="newsdetails"), 
     
     path('about-us/',views.aboutus, name="about-us"),
     path('services/',views.services, name="services"),

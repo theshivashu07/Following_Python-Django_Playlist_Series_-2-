@@ -13,8 +13,8 @@ def index(request):
     }
     return render(request,'index.html',data);
 
-def newsdetails(request,newsid):
-    newsDetails=News.objects.get(id=newsid);
+def newsdetails(request,newsslug):
+    newsDetails=News.objects.get(slug=newsslug);
     data={
         'newsdetails' : newsDetails,
     }

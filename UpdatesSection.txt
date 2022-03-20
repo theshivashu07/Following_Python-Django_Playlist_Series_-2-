@@ -1331,8 +1331,68 @@ GetAllTableData.html
 ===================================================================================================
 
 
+45 - Add Auto SlugField in Django
+
+Here we see that how to we add Auto Slug field. Actually slug field is, whatever the title, like service's or news's title we gives, so to this representing as slug bases. Like here we pass our id on url, but this id pass is not right way there. So best approch is we pass slug on url, so case is how to slug is generated, now to generate slug we use AutoSlugField, abd this field working on our title, means whatever our title, AutoSlugField working on the bases of this, then our data is getting. So like for "about us" url, slug is "about-us".
+So lets do this working in practical: 
+
+But first we install python-django's one package there, 
+|>> pip install django-autoslug
+
+And first we import this package on models.py file, and also add one more field on your News class under the News app's models.py, so now overall our models.py file is,
+models.py
+from autoslug import AutoSlugField
+class News(models.Model):
+    news_title = models.CharField(max_length=100);
+    news_desc = HTMLField(); 
+    slug = AutoSlugField(populate_from='news_title',
+                         unique=True, null=True, default=None)
+
+So always remember there is first import then use this AutoSlugField. Actually here 'populate_from' means which field's thrue we want to make slug, and possible to may its 'unique' or 'null' too, and 'default' none means you go with none value. 
+Then news tasks is we do makemigrations and then migrate, so that first there is migrations applyed and then all tables are created, 
+|>> python manage.py makemigrations
+|>> python manage.py migrate
+
+Now how to we chack that this field is actually created or not, so there is two ways. First is you go on DB Browser and select your sqlite database's file, and then check on 'news_news' table, there is showing your this field also. And second is you just go on Admin side and check news table, but you see there is no 'slug' field showing, so the reason of that because there is we never write data on it, this slug is automatically generated according to a 'news_title' field. 
+But one more thing is important, that because we created this slug field right now, so go on news table on your admin side and resave your all data again, and not must to do change. And before this for our previous data showing null, but now there is showing your slugs.
+So overall means is there slug field is automatically generated internally. 
+
+So now you just go on your index.html file and only do a change on calling url's places, here now we pass 'slug' on the places of 'id', 
+index.html
+..................
+    ..................
+        <marquee onmouseover="stop()" onmouseout="start()">
+          {% for news in newsData %}
+            <a href="/newsdetails/{{news.slug}}">
+              {{news.news_title}}  
+            </a>  &nbsp &nbsp &nbsp
+          {% endfor %}
+        </marquee> 
+    ..................
+..................      
+
+And there is must one more change on my same name urls.py views.py file's, because there is we mention that we passing 'id', so now we written 'slugs' there, 
+urls.py(myProject)
+..................
+urlpatterns = [
+    ..................
+    path('newsdetails/<newsslug>',views.newsdetails, name="newsdetails"), 
+    ..................
+]
+
+views.py(myProject)
+def newsdetails(request,newsslug):
+    newsDetails=News.objects.get(slug=newsslug);
+    data={
+        'newsdetails' : newsDetails,
+    }
+    return render(request,'newsdetails.html',data); 
+
+And now you see there is url is called according to a slugs bases. So in this ways we makes slugs. 
 
 
+
+===================================================================================================
 
 
 
