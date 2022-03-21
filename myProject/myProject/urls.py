@@ -41,6 +41,8 @@ urlpatterns = [
     path('getalltabledata/',views.getalltabledata, name="getalltabledata"), 
     path('pagination/',views.pagination, name="pagination"), 
     
+    path('saveenquiry/',views.saveenquiry, name="saveenquiry"), 
+    
     path('admin/', admin.site.urls),
 ]
 

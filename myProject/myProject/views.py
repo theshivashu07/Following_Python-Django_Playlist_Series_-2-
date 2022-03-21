@@ -5,6 +5,8 @@ from .forms import userForm
 from service.models import Service,trialData
 from news.models import News
 from django.core.paginator import Paginator
+from contactenquiry.models import saveEnquiry
+
 
 def index(request):
     newsData=News.objects.all()[1:];
@@ -235,6 +237,30 @@ def pagination(request):
     }
     return render(request,'PAGINATION.html',data);
 
+
+
+
+
+
+def saveenquiry(request):
+    data={}
+    if request.method=="POST":
+        my_name=request.POST["myname"]
+        my_email=request.POST["myemail"]
+        my_mno=request.POST["mymno"]
+        my_websitename=request.POST["mywebsitename"]
+        my_message=request.POST["mymessage"]
+        values=saveEnquiry(my_name=my_name, my_email=my_email, my_mno=my_mno, my_websitename=my_websitename, my_message=my_message);
+        values.save()
+        data={
+            'myname' : my_name,
+            'myemail' : my_email,
+            'mymno' : my_mno,
+            'mywebsitename' : my_websitename,
+            'mymessage' : my_message,
+            'message' : "<center><b style='color: red;'>Your Data Is Inserted Successfully!</b></center>"
+        }
+    return render(request,'TestingForm.html',data);
 
 
 

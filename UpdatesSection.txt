@@ -1578,11 +1578,66 @@ So now things are working perfectly. And yes i'm again mention that i'm implemen
 ===================================================================================================
 
 
+48 - Django: Save Form Data to Database | Django Model Form 
+
+Till now what we see, we adding data by Admin side and show on html file. But now we wants to add data by html side and for this data we save on our data base, so that we see this data on Admin side, means we just want to reverse the things. 
+So overall the means here we see, how to we getting a data from frontend or websites or html side, and then submit or save this data on model. So its whole process we see there, actually here is we working on insert query bases. 
+
+So first we make one html file for enquiry form 'TestingForm.html', then we make a url and function with name 'saveenquiry', to handled this file's related get & post operation, and then we want to add this on HEADER.html file's product section. 
+And the second task is to we make a module again, and its name is 'contactenquiry'. After this you go on project's same name app's settings.py file, and under this we mention this new app name, so that this app is also connected with this project.
+Now we go on modules.py and make a class, then go on admin.py section and do entry there, and then we are going on terminal, so that we do we apply two comands, first is makemigrations and then migrate, and then our this module shows on the Admin side.
+And after some more testing related works, our website is working perfectly, you just checkout all code:
+
+
+admin.py(contactenquiry)
+from django.contrib import admin
+from contactenquiry.models import saveEnquiry
+class saveEnquiryAdmin(admin.ModelAdmin):
+    list_display=('my_name', 'my_email', 'my_mno', 'my_websitename', 'my_message');
+admin.site.register(saveEnquiry,saveEnquiryAdmin);
+
+
+models.py(contactenquiry)
+from django.db import models
+from autoslug import AutoSlugField
+class saveEnquiry(models.Model):
+    my_name = models.CharField(max_length=50);
+    my_email = models.CharField(max_length=50);
+    my_mno = models.CharField(max_length=15);
+    my_websitename = models.CharField(max_length=50);
+    my_message = models.CharField(max_length=250);
+    # we also make internal slug's on the bases of my_name, may be in future we needed these! 
+    slug = AutoSlugField(populate_from='my_name', unique=True, null=True, default=None);
+
+
+views.py (myAdmin) 
+....................
+from contactenquiry.models import saveEnquiry
+....................
+def saveenquiry(request):
+    data={}
+    if request.method=="POST":
+        my_name=request.POST["myname"]
+        my_email=request.POST["myemail"]
+        my_mno=request.POST["mymno"]
+        my_websitename=request.POST["mywebsitename"]
+        my_message=request.POST["mymessage"]
+        values=saveEnquiry(my_name=my_name, my_email=my_email, my_mno=my_mno, my_websitename=my_websitename, my_message=my_message);
+        values.save()
+        data={
+            'myname' : my_name,
+            'myemail' : my_email,
+            'mymno' : my_mno,
+            'mywebsitename' : my_websitename,
+            'mymessage' : my_message,
+            'message' : "<center><b style='color: red;'>Your Data Is Inserted Successfully!</b></center>"
+        }
+    return render(request,'TestingForm.html',data);
 
 
 
 
-
+===================================================================================================
 
 
 
