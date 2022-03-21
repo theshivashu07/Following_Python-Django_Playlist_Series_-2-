@@ -263,6 +263,16 @@ def saveenquiry(request):
     return render(request,'TestingForm.html',data);
 
 
+def showuserinformations(request):
+    gettingData=saveEnquiry.objects.all();
+    data={
+        'gettingData':gettingData,
+    }
+    return render(request,'ShowUserInformations.html',data);
+
+
+
+
 
 
 

@@ -47,6 +47,8 @@ urlpatterns = [
     path('pagination/',views.pagination, name="pagination"), 
 
     path('saveenquiry/',views.saveenquiry, name="saveenquiry"), 
+
+    path('showuserinformations/',views.showuserinformations, name="showuserinformations"), 
     
     path('admin/', admin.site.urls),
 ]

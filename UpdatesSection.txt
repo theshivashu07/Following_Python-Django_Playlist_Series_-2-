@@ -1695,7 +1695,60 @@ So till now we see image adding option, how to we showing image, we will discuss
 ===================================================================================================
 
 
+50 - Displaying Uploaded Images in the Template - Django 
 
+Now we see that which file we uploading, how to we display this file on website. So we use 'img' tag to display image, but what is the exectly process to display images. So here we see in prectically everything. So follow steps one-by-one...
+
+So to display our data sets we want to create one file 'ShowUserInformations.html' uniqually using for loop and with many conditions and stylings, so that there is height and width all are managing. And we also make url and function with same name for this html page access. And we also adding this on HEADER.html file's product section, so that we accessing this link directly. And then we do some code on our views.py function too, and according to this we managing our 'ShowUserInformations.html' file too. So see overview codes, to see full codes go on files, 
+
+views.py
+......................
+def showuserinformations(request):
+    gettingData=saveEnquiry.objects.all();
+    data={
+        'gettingData':gettingData,
+    }
+    return render(request,'ShowUserInformations.html',data);
+
+
+ShowUserInformations.html
+......................
+    </main>
+      </article>
+        <!-- Section 1 -->
+        <section class="section background-white">
+         ......................
+        {% for data in gettingData %}
+          <div class="line">
+            <div class="margin2x">
+              <div class="m-12 l-6 margin-m-bottom-30" style="height: 250px; width: 250px;"> 
+                <!-- here we check because some times maybe we not add image, so on this situation there is NULL stored-->
+                {% if data.my_image != NULL %}
+                <img src="/media/{{data.my_image}}" alt="" class="img-fluid">
+                {% endif %}
+              </div>          
+              <div class="m-12 l-6">
+                <h4> <b>
+                <br> Name : {{data.my_name}}
+                <br> Email : {{data.my_email}}
+                <br> Mobile Number : {{data.my_mno}}
+                <br> Website Name : {{data.my_websitename}}
+                <br> Message : {{data.my_message}}
+                </b> </h4>
+            </div>    
+          </div>  
+          <br>
+         {% endfor %}      
+        </section>      
+      </article>
+    </main>
+......................
+
+Here we applying for loop so that every data is coming and showing there, and using if statement because sometimes maybe we not add image, so on this situation there is NULL stored automatically, so if we check for [for data.my_image] and [for data.my_image != ""] directly, so this is also wrong, and thats why we checking by [for data.my_image != True], and this works perfectly. So there is showing all user's data perfectly.
+
+
+
+===================================================================================================
 
 
 

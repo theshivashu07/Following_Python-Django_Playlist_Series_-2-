@@ -1,0 +1,85 @@
+
+
+
+
+{% extends 'SEPARATE.html' %}
+  {% block mycode %}
+
+
+
+
+
+    
+    <!-- MAIN -->
+    <main role="main">
+      <article>    
+        <!-- Header -->
+        <header class="section background-image text-center" style="background-image:url(/static/image/img-05.jpg)">
+          <h1 class="animated-element slow text-extra-thin text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-30 margin-top-130">
+            USER's SECTION
+          </h1>
+          <p class="animated-element text-white">Duis autem vel eum iriure dolor in hendrerit in</p>
+          
+          <!-- white full width arrow object -->
+          <img class="arrow-object" src="/static/image/arrow-object-white.svg" alt="">
+        </header>
+
+
+        <!-- Section 1 -->
+        <section class="section background-white">
+          <div class="line text-center">
+            <i class="icon-sli-heart text-primary text-size-40"></i>
+            <h2 class="text-dark text-size-50 text-m-size-40">There are the details of <b>All Users!</b></h2>
+            <hr class="break background-primary break-small break-center margin-bottom-50">
+          </div>
+          <br>
+          {% for data in gettingData %}
+          <div class="line">
+            <div class="margin2x">
+              <div class="m-12 l-6 margin-m-bottom-30" style="height: 250px; width: 250px;"> 
+                <!-- here we check because some times maybe we not add image, so on this situation there is NULL stored-->
+                {% if data.my_image != NULL %}
+                <img src="/media/{{data.my_image}}" alt="" class="img-fluid">
+                {% endif %}
+              </div>          
+              <div class="m-12 l-6">
+                <h4>
+                <b>
+                <br> Name : {{data.my_name}}
+                <br> Email : {{data.my_email}}
+                <br> Mobile Number : {{data.my_mno}}
+                <br> Website Name : {{data.my_websitename}}
+                <br> Message : {{data.my_message}}
+                </b>
+                </h4>
+                <!--
+                <h4>
+                <br> Name :  <b>{{data.my_name}}</b>
+                <br> Email :  <b>{{data.my_email}}</b>
+                <br> Mobile Number :  <b>{{data.my_mno}}</b>
+                <br> Website Name :  <b>{{data.my_websitename}}</b>
+                <br> Message :  <b>{{data.my_message}}</b>
+                </h4>
+                -->
+            </div>    
+          </div>  
+          <br>
+          {% endfor %}      
+        </section>      
+      </article>
+    </main>
+
+
+
+
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+
