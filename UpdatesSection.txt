@@ -1808,7 +1808,7 @@ def ..................(request):
 ..................
 
 Here first subject of mail, second is mail, third is by which email id, so we considered our new email id name, and forth is to which email id we want to sent email, so we write our actual old id names in the code. 
-So okay, there is all things are set, now we make a one url and one function there, and name as 'sentmail'. So on this function we call this 'send_mail' function, so that whenever we click on this link, mail is automatically sent to my new to old email id. Now there is we only for checking there is we set everythings, but in future we changing these details dynamically, according to dynamic data.
+So okay, there is all things are set, now we make a url and function there, and name as 'sentmail'. So on this function we call this 'send_mail' function, so that whenever we click on this link, mail is automatically sent to my new to old email id. Now there is we only for checking there is we set everythings, but in future we changing these details dynamically, according to dynamic data.
 Now we are focussing on how to we sent email, and to linking this in my website, we adding this on website's product section. So lets try this and you also see the exect function's code, by the way after sending mail, we direct redirect on our home page. So lets see the code,
 ..................
 from django.core.mail import send_mail
@@ -1832,10 +1832,46 @@ So okay google, thatsit the lecture!
 ===================================================================================================
 
 
+52 - Email HTML Content: Email Multi Alternatives Function 
+
+Here in this lecture we will see that how to we use 'EmailMultiAlternatives' function? Actually its role is if you want to sent html tags on email then we use this function. If we want to sent plain text then we use last lectures 'send_mail' function, but if you want to sent any html related files's whole code then we sents this using 'EmailMultiAlternatives' function. Here we pass same 4 data here too, but we also pass that which type of data we pass, so we mention HTML type there.
+So first we import 'EmailMultiAlternatives' function in views.py from same as last's 'django.core.mail'. And you always remember that we configer SMTP on both cases, not metter you working with 'send_mail' or 'EmailMultiAlternatives' function, means settings.py configerations is must in both cases. So first see this overview code,
+
+Sending alternative content types:
+from django.core.mail import EmailMultiAlternatives
+..................
+subject, from_email, to = 'hello', 'from@example.com', 'to@example.com'
+text_content = 'This is an important message.'
+html_content = '<p>This is an <strong>important</strong> message.</p>'
+msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+msg.attach_alternative(html_content, "text/html")
+msg.send()
+..................
+
+Now we again make a url and function there, and name as 'emailmultialternatives'. So on this function we call this 'EmailMultiAlternatives' function, so that whenever we click on this link, mail is automatically sent to my new to old email id. Now there is we only for checking there is we set everythings, but in future we changing these details dynamically, according to dynamic data, and there is we sent html tags related data.
+Now we are focussing on how to we sent email, and to linking this in my website, we adding this on website's product section. So lets try this and you also see the exect function's code, by the way after sending mail, we direct redirect on our home page. So lets see the code,
+
+views.py
+.....................
+def emailmultialternatives(request):   
+    subject = "Testing-Mail-2.0-again"
+    from_email = "djangotrial07@gmail.com"
+    message = "<p>This mail is sent by just only the <b>testing purpose.</b></p>"
+    to = "shivamshukla3108@gmail.com"
+    click = EmailMultiAlternatives(subject,message,from_email,[to])
+    click.content_subtype="html"
+    click.send()
+    return render(request,'index.html');
+
+So okay google, there is emails are really senting, by the way one things i'm saying that there is under list we adding multiple gmail accounts, so that in a bult we sent a mails. And yess in future we also sent data to user for his registration or login, because first on views.py we get data and according to user's email id we sent users submitted details to his accounts, and thats how we also sent OTP to user's accounts.
+There is many things to we trying to do there, so we are applying these things in my futures project. 
+
+So okay Google, thatsit the last lecture.
 
 
 
 
+===================================================================================================
 
 
 

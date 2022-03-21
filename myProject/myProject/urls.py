@@ -51,6 +51,7 @@ urlpatterns = [
     path('showuserinformations/',views.showuserinformations, name="showuserinformations"), 
     
     path('sentmail/',views.sentmail, name="sentmail"), 
+    path('emailmultialternatives/',views.emailmultialternatives, name="emailmultialternatives"), 
     
     path('admin/', admin.site.urls),
 ]

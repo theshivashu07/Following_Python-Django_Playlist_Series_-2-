@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 from contactenquiry.models import saveEnquiry
 
 # we importing this, because of email sending purpose...
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 
 
 
@@ -288,6 +288,15 @@ def sentmail(request):
     )
     return render(request,'index.html');
 
+def emailmultialternatives(request):   
+    subject = "Testing-Mail-2.0-again"
+    from_email = "djangotrial07@gmail.com"
+    message = "<p>This mail is sent by just only the <b>testing purpose.</b></p>"
+    to = "shivamshukla3108@gmail.com"
+    click = EmailMultiAlternatives(subject,message,from_email,[to])
+    click.content_subtype="html"
+    click.send()
+    return render(request,'index.html');
 
 
 
