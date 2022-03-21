@@ -1640,6 +1640,59 @@ def saveenquiry(request):
 ===================================================================================================
 
 
+49 - File Upload with FileField in Django Model
+
+Here we see that how to we apply file uploding option from Admin side, now not from front-end. Suppose we want that in any models, we also want to show one image option, so that we inserting image too. 
+Here we apply two things, First is media url in settings.py file and Second is we give to a permission to urls so that you medias folders working on urls. So these two things must whenever we apply file uplodation logic. And when we work on file so we use FileField() logic. And whatever the logic we applying there, we see in prectical, so see one-by-one steps, 
+
+Whenever we working with media's, so its must that under the project there is exist 'media' name's folder, because on this we uploading all files. 
+Then second stp is we go on settings.py file and must to write two line there, if we want to work with media,
+settings.py
+...................
+# Must to add if we want to work with MEDIA's related things
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+
+And third thing is you open urls.py, and under this import two libraries. Actually we imporing 'settings' because which media roots and urls we define, these are on settings, and 'static' provide us to permission that we use media with there's 'urlpatterns', which list in in this file, so whereever you want to use and implement these, so on this url you import libraries on there. 
+And in the last of this urls,py file we checking our debuging mode, if it is true then we adding some more things with concatinate this 'urlpatterns', actually here we adding root and media url under static, so overall the code is,
+urls.py
+.................
+# these importing is must if we working with media related thing
+from django.conf import settings 
+from django.conf.urls.static import static 
+urlpatterns = [
+    .................
+]
+# this is also must if we working with media related things
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+So means is, here we pass with urlpattern is, using static function we connect MEDIA_URL and MEDIA_ROOT.
+Now we go on our 'contactenquiry' module's modules.py file and adding one more field there, and this is my_image,
+models.py(contactenquiry)
+class saveEnquiry(models.Model):
+    ................
+    # we adding this field because we want to add image's too.
+    my_image = models.FileField(upload_to="news/",max_length=250,null=True,default=None);
+
+Actually here 'max_length' means your url's length will be 250 characters, 'null=True' means its going as True, and also set 'default' as None, and here 'upload_to' means under 'media' folder our 'news' folder created, and under this location our all files are save's.
+Now the last work it on terminal is, we do apply makemigrations so that field is created and the migrate so that our table is created. 
+
+And then you go on you admin pannel and see there, if you do all process step by step, then definatly there is showing your image options. 
+Now in a mind question is pop-up that how to we do that in front-end side, so ruko zraa, sabar kroo! hehhhe... We will discussed it later in the next lecture, now we will see this.
+So now you open any one data and set image by your location, and then save data. Now if you want to check our image is really saved or not, so you go on the location on your project first then open media's and then news's folder and there is showing your file, so it means your image is really saved, and you this process is working perfectly. If you want to after saving you image details shoing in the front, so you go on contactenquiry's admin.py file and on there function you add a field name, then this field is also showing in the front of table.
+admin.py(contactenquiry)
+.........................
+class saveEnquiryAdmin(admin.ModelAdmin):
+    list_display........................., 'my_image');
+admin.site.register(saveEnquiry,saveEnquiryAdmin);
+
+And one thing is also mistaken there, because which series i'm following, there is working on news app so there is under media folder name is news so bhawnaoon me bahkrr, i'm also give the name as 'news', this is not a big problem and it also not effecting anywhere, its just a name change probem, actually we want to providing a name 'userimage'. Now there is all works done perfectly.
+So till now we see image adding option, how to we showing image, we will discuss it later. So okkay google thatsit the lecture! 
+
+
+
+===================================================================================================
 
 
 

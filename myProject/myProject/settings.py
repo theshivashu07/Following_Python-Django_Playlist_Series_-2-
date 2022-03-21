@@ -125,11 +125,20 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR,"static"
+    # BASE_DIR/"static"
 ] 
 
 
 # Must to add this, if you use 'tinymce' editor...
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField';
+
+# Must to add if we want to work with MEDIA's related things
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+
+
+
+
 
 
 

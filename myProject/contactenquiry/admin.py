@@ -2,7 +2,7 @@ from django.contrib import admin
 from contactenquiry.models import saveEnquiry
 
 class saveEnquiryAdmin(admin.ModelAdmin):
-	list_display=('my_name', 'my_email', 'my_mno', 'my_websitename', 'my_message');
+	list_display=('my_name', 'my_email', 'my_mno', 'my_websitename', 'my_message','my_image');
 admin.site.register(saveEnquiry,saveEnquiryAdmin);
 
 

@@ -18,6 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from myProject import views
 
+# these importing is must if we working with media related thing
+from django.conf import settings 
+from django.conf.urls.static import static 
+
+
 urlpatterns = [
     path('',views.index,name=""),
     path('index/',views.index, name="index"),
@@ -40,7 +45,7 @@ urlpatterns = [
 
     path('getalltabledata/',views.getalltabledata, name="getalltabledata"), 
     path('pagination/',views.pagination, name="pagination"), 
-    
+
     path('saveenquiry/',views.saveenquiry, name="saveenquiry"), 
     
     path('admin/', admin.site.urls),
@@ -48,6 +53,9 @@ urlpatterns = [
 
 
 
+# this is also must if we working with media related things
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
