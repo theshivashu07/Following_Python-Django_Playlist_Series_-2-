@@ -1485,15 +1485,18 @@ PAGINATION.html
 So now overall our Pagination is working perfectly, here our all First, Previous, 1, 2, 3, 4, Next and Last page working perfectly. And also there is all 1, 2, 3 and 4 shows according to your data sets, so there is actually 4 sets coming from 2's combinations. Thatsit!
 
 
+
+
 [ Commit 2.0 ]
 But here is one things we must to implement, and that is active page show, and this is must because otherwise its not showing perfectly.
-And finally we know that what is the key name, whos shows current page... You see in a code, what is exectly the code is. So, okay google, thatsit there!
+And finally we know that what is the key name, whos shows current page... You see in a code, what is exectly the code is. 
+
 
 
 
 [ Commit 2.0 original ]
 You don't considered above commit there is nothing main things. 
-Actually we are so struggling there because we don't know about the key name, who tells that what is the current page number, and that why we are having a lot of time, but now all okay because now i know that 'gettingData.number' have the current page value. And to finding this we have many more others values also, so we discussed it belows, but first we show mainly html code. There is nothing must we adding, we ionly applying active section using if-else statements. And we not changing on our views.py file. So now you see this code. 
+Actually we are so struggling there because we don't know about the key name, who tells that what is the current page number, and that why we are having a lot of time, but now all okay because now i know that 'gettingData.number' have the current page value. And to finding this we have many more others values also, so we discussed it belows, but first we show mainly html code. There is nothing must we adding, we only applying active section using if-else statements. And we not changing on our views.py file. So now you see this code. 
 
 PAGINATION.html 
 ...............................
@@ -1512,7 +1515,6 @@ PAGINATION.html
   ...............................
 ...............................
 
-
 Some Important things related to Paginations:
 [1,2,3,4,5,6,7,8]
  <a href="?page=1"> First </a>
@@ -1523,9 +1525,57 @@ Some Important things related to Paginations:
 
 
 
+
+
+[ Commit 3.0 ]
+Actually till now we implementing the pagination whole logics, and also which page's we available there is showing active status. So there is all things perfectly works. 
+But one things we also see there, if we are on 1 page, then First and Previous not showing, similerly if we are on the past page then there is Next and Last page not showing. So here the idea is we want these, but in disabled format, means if we are on 1 page, then First and Previous showing but is disabled format, similerly for last page, there is Next and Last page also showing but in disabled format. 
+So idea is simple, we also implement else statement for those, and there are applying as disabled class in else part, so it automatically considering. So now we not able to click on these, if we are on first or last page. Now we see the code's architecture overview only, 
+
+PAGINATION.html 
+...............................
+  ...............................
+    <!--Pagination 2-->
+    <div class="container">
+        ...............................
+            {% if gettingData.has_previous %}
+                <li class="page-item"> ......................... </li>
+                <li class="page-item"> ......................... </li>
+            {% else %}
+                <li class="page-item disabled"> ......................... </li>
+                <li class="page-item disabled"> ......................... </li>
+            {% endif %}
+
+            {% for i in mylist %}
+                {% if i is gettingData.number %}
+                    <li class="page-item active">
+                        <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+                    </li>
+                {% else %} 
+                    <li class="page-item">
+                        <a class="page-link" href="/pagination/?page={{i}}">{{i}} </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <!-- actually we use this if statement, so that this showing only then, when we are not in the last page -->
+            {% if gettingData.has_next %}
+                <li class="page-item"> ......................... </li>
+                <li class="page-item"> ......................... </li>
+            {% else %}
+                <li class="page-item disabled"> ......................... </li>
+                <li class="page-item disabled"> ......................... </li>
+            {% endif %}
+        ...............................
+    </div>
+  ...............................
+...............................
+
+So now things are working perfectly. And yes i'm again mention that i'm implementiong this logic on 'pagination'. So now all the things we want i'm implementing perfectly, now no more commits we do related to this lecture. So okay google, thatsit!
+
+
+
 ===================================================================================================
-
-
 
 
 
