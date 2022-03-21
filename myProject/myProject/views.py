@@ -7,6 +7,10 @@ from news.models import News
 from django.core.paginator import Paginator
 from contactenquiry.models import saveEnquiry
 
+# we importing this, because of email sending purpose...
+from django.core.mail import send_mail
+
+
 
 def index(request):
     newsData=News.objects.all()[1:];
@@ -269,6 +273,21 @@ def showuserinformations(request):
         'gettingData':gettingData,
     }
     return render(request,'ShowUserInformations.html',data);
+
+
+
+
+
+def sentmail(request):   
+    send_mail(
+        'Testing-Mail',
+        'This mail is sent by just only the testing purpose.',
+        'djangotrial07@gmail.com',
+        ['shivamshukla3108@gmail.com'],
+        fail_silently=False,
+    )
+    return render(request,'index.html');
+
 
 
 

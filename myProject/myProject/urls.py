@@ -50,6 +50,8 @@ urlpatterns = [
 
     path('showuserinformations/',views.showuserinformations, name="showuserinformations"), 
     
+    path('sentmail/',views.sentmail, name="sentmail"), 
+    
     path('admin/', admin.site.urls),
 ]
 

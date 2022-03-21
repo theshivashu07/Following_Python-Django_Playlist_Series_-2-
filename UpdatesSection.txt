@@ -1751,10 +1751,85 @@ Here we applying for loop so that every data is coming and showing there, and us
 ===================================================================================================
 
 
+51 - Setup Sending Email in Django Project
+
+Here we see rhat how to we send Email by django. 
+Suppose that we have a query form, and we fill that, then this mail is sending to admin or user, so how to we apply this process. 
+Now we not talk about add mail on form, here we talk about what steps must needed for setup, what code we do implement, so whole things we discussed there, 
+Only remember the thing that if we want to sent mail from our local system, so there is must to configer SMTP (Simple Mail Transfer Protocal). Actually SMTP is a protocal, we configer anyone gmail or hosting's SMTP, means we using gmail so sent a mail, actually here gmail is a part of middlewere who sent mails. So there is must to we gives gmail's access to django, means must to provide username and password, then it able to sent mails, means is simple SMTP is a as main resourse to sent mails. 
+But when we uploading our website on server, so there we make SMTP of main hosting, otherwise if there is you not make SMTP then no problem there, but if you applying mail process from local server, so there is must to configer SMTP, without it mail is not gone. 
+
+So now the case is how to SMTP configer? what parameters we will passing? 
+Let i'm clearing a structure, Actually for SMTP we working on settings.py and where want to sent mail there is also we working, and we also importing some libraries, and we also considering django's documentations, so lets see these steps one-by-one, 
+
+So first step is how to we configuer SMTP? So first if you have any id then we considered this, otherewise we create a new gmail, because there is must to one gmail id and password to give there, because this id plays a role as mediator or resourse, using this id all mails are sending here to there. Because now we not uploading website on server, so in local system we using gmail's SMTP.
+So first step is, which email you using as mediator, so open it as gmail, and go on apps section (9'dots), and then open accounts, and search "Less secure app access" and after open this you gives permission allow there, its a must step, because otherwise we not able to use this gmail id as SMTP's mediator. 
+Second step is to we do many configration there, you also visit on django's personal documentation, there is shows all thing, so visite on the link,
+https://docs.djangoproject.com/en/4.0/topics/email/
+
+SMTP backend
+host: EMAIL_HOST
+port: EMAIL_PORT
+username: EMAIL_HOST_USER
+password: EMAIL_HOST_PASSWORD
+use_tls: EMAIL_USE_TLS
+use_ssl: EMAIL_USE_SSL
+timeout: EMAIL_TIMEOUT
+ssl_keyfile: EMAIL_SSL_KEYFILE
+ssl_certfile: EMAIL_SSL_CERTFILE
+
+But not must to implement all's, but initial 5 is must configs parameters. So how to we gives? we see there. So go on settings.py file and there first we passing host, means which SMTP you used, so there is we use gmail's SMTP, and gmail's SMTP is 'smtp.gmail.com'. Here we written gmail's SMTP, but if you do on server then there is chances that it will change, but for locally gmail's SMTP is 'smtp.gmail.com'. 
+Second is a port, so whenever you applying process of SMTP and even of gmail's SMTP, so we give 587 port number from local, It will changing actually whenever we working live. By the way there is two ports for gmail, first is 587 and second is 465. Mostly we use port 465, whenever we working live with https protocall using gmail, so there we applying this. Then third is the name of your gmail account, means which id is we use as mediator. And forth is our password, and actual password. And fifth is TLS, actually its a status, on which we assign YES, because we use authentication there, so there is must as True. So see our settings.py file,
+settings.py
+.................................
+# Must to add when we appling email authentication related things
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'djangotrial07'
+EMAIL_HOST_PASSWORD = '#@djangotrial07'
+EMAIL_USE_TLS = True
+
+Here i'm providing a email and password also, by the way after my project completion i'm deleting my this email id, i'm creating this because of django's trial, and thatswhy i'm also fiving username related to django trials.
+Now next step is we want to import library there, many libraries there is, and we also seeing these one-by-one, but first we import one library there, in the next steps or lectures we will see that if we want to send all html design then how to we sent it, but in this part we will see how we sent mail?
+So now next step is we import a library on views.py function, we call a function under any any function. So first see this overview code,
+
+Sending Email Steps:
+..................
+from django.core.mail import send_mail
+def ..................(request):
+    send_mail(
+        'Subject here',
+        'Here is the message.',
+        'from@example.com',
+        ['to@example.com'],
+        fail_silently=False,
+    )
+    ..................
+..................
+
+Here first subject of mail, second is mail, third is by which email id, so we considered our new email id name, and forth is to which email id we want to sent email, so we write our actual old id names in the code. 
+So okay, there is all things are set, now we make a one url and one function there, and name as 'sentmail'. So on this function we call this 'send_mail' function, so that whenever we click on this link, mail is automatically sent to my new to old email id. Now there is we only for checking there is we set everythings, but in future we changing these details dynamically, according to dynamic data.
+Now we are focussing on how to we sent email, and to linking this in my website, we adding this on website's product section. So lets try this and you also see the exect function's code, by the way after sending mail, we direct redirect on our home page. So lets see the code,
+..................
+from django.core.mail import send_mail
+def sentmail(request):   
+    send_mail(
+        'Testing-Mail',
+        'This mail is sent by just only the testing purpose.',
+        'djangotrial07@gmail.com',
+        ['shivamshukla3108@gmail.com'],
+        fail_silently=False,
+    )
+    return render(request,'index.html');
+
+Wowwww!
+And yes this is actually working, this is a definitely a new thing which we learn. So okay with follwing these steps we applying this logic. 
+But always remember because we are working locally, so django senting mail thrue accessing from gmail, and thats why sometimes it takes few time, but its not a big deal, because whenever we are going to live, this problem is automatically remove. Main thins is we sent mail perfectly. 
+So okay google, thatsit the lecture! 
 
 
 
-
+===================================================================================================
 
 
 
