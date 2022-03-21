@@ -1786,7 +1786,7 @@ settings.py
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'djangotrial07'
-EMAIL_HOST_PASSWORD = '#@djangotrial07'
+EMAIL_HOST_PASSWORD = '.....'    # Here I'm Deleting My New ID's Password
 EMAIL_USE_TLS = True
 
 Here i'm providing a email and password also, by the way after my project completion i'm deleting my this email id, i'm creating this because of django's trial, and thatswhy i'm also fiving username related to django trials.
@@ -1870,8 +1870,21 @@ So okay Google, thatsit the last lecture.
 
 
 
+--------------------------------------------------------------------------------------------------
+
+
+[ Commit Ready ]
+Oppps! I'm coming there because of i want to delete my id's password, because creates a trubble, so after deleting this we commiting again.
+By the way i'm comming again with the last commit, because there is i'm definitely writing many english incorrect words in this text file, so to make correct this i'm coming again with my last commit. 
+
+So okay Google, See you very very soon!
+
 
 ===================================================================================================
+
+
+
+
 
 
 

@@ -141,7 +141,7 @@ MEDIA_URL = "/media/"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'djangotrial07@gmail.com'
-EMAIL_HOST_PASSWORD = '#@djangotrial07'
+EMAIL_HOST_PASSWORD = '.....'    # Here I'm Deleting My New ID's Password
 EMAIL_USE_TLS = True
 
 
